@@ -27,7 +27,7 @@ public class UI implements ActionListener {
     private int add = 0, minus = 0, multiply = 0, divide = 0;
     
 	public UI() {
-		frame = new JFrame("Calculator");
+		frame = new JFrame("Calculator PH");
 		panel = new JPanel(new FlowLayout());
 		
 		text = new JTextArea(1,20);
