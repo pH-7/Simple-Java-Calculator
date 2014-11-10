@@ -19,12 +19,12 @@ import java.awt.event.ActionEvent;
 
 public class UI implements ActionListener {
 
-    private JFrame frame;
-    private JPanel panel;
-    private JTextArea text;
-    private JButton but1, but2, but3, but4, but5, but6, but7, but8, but9, but0, butAdd, butMinus, butMultiply, butDivide, butEqual, butCancel;
-    private Double num1, num2, result;
-    private int add = 0, minus = 0, multiply = 0, divide = 0;
+    public JFrame frame;
+    public JPanel panel;
+    public JTextArea text;
+    public JButton but1, but2, but3, but4, but5, but6, but7, but8, but9, but0, butAdd, butMinus, butMultiply, butDivide, butEqual, butCancel;
+    public Double num1, num2, result;
+    public int add = 0, minus = 0, multiply = 0, divide = 0;
     
 	public UI() {
 		frame = new JFrame("Calculator PH");
