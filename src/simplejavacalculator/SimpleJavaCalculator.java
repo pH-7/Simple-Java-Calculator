@@ -8,11 +8,15 @@
  * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
  * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
  * @create      2012-03-30
+ * 
+ * @modifiedby  Achintha Gunasekara
+ * @modweb      http://www.achinthagunasekara.com
+ * @modemail    contact@achinthagunasekara.com
  */
 
-package ph.calculator;
+package simplejavacalculator;
 
-public class Main {
+public class SimpleJavaCalculator {
 
 	public static void main(String[] args) {
 		UI uiCal = new UI();
