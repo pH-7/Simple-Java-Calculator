@@ -26,22 +26,23 @@ public class UI implements ActionListener {
     private JFrame frame;
     private JPanel panel;
     private JTextArea text;
-    private JButton but1, but2, but3, but4, but5, but6, but7, but8, but9, but0, butAdd, butMinus, butMultiply, butDivide, butEqual, butCancel;
+    private JButton but1, but2, but3, but4, but5, but6, but7, but8, but9, but0, butAdd, butMinus, butMultiply, butDivide, butEqual, butCancel, butSquareRoot, butSquare, butOneDevidedBy, butCos, butSin, butTan;
     private Double num1, num2, result;
     private int add = 0, minus = 0, multiply = 0, divide = 0;
     
 	public UI() {
 		frame = new JFrame("Calculator PH");
+                frame.setResizable(false);
 		panel = new JPanel(new FlowLayout());
 		
-		text = new JTextArea(1,20);
+		text = new JTextArea(2,25);
 		but1 = new JButton("1");
-	    but2 = new JButton("2");
+                but2 = new JButton("2");
 		but3 = new JButton("3");
 		but4 = new JButton("4");
 		but5 = new JButton("5");
 		but6 = new JButton("6");
-	    but7 = new JButton("7");
+                but7 = new JButton("7");
 		but8 = new JButton("8");
 		but9 = new JButton("9");
 		but0 = new JButton("0");
@@ -51,6 +52,12 @@ public class UI implements ActionListener {
 		butMultiply = new JButton("*");
 		butDivide = new JButton("/");
 		butEqual = new JButton("=");
+                butSquareRoot = new JButton("√");
+                butSquare = new JButton("x*x");
+                butOneDevidedBy = new JButton("1/x");
+                butCos = new JButton("Cos");
+                butSin = new JButton("Sin");
+                butTan = new JButton("Tan");
 		
 		butCancel = new JButton("C");
 		
@@ -58,7 +65,7 @@ public class UI implements ActionListener {
 	
 	public void init() {
 		frame.setVisible(true);
-		frame.setSize(250,250);
+		frame.setSize(350,280);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
 		
@@ -78,8 +85,14 @@ public class UI implements ActionListener {
 		panel.add(butMinus);
 		panel.add(butMultiply);
 		panel.add(butDivide);
-		panel.add(butEqual);
+                panel.add(butSquare);
+                panel.add(butSquareRoot);
+                panel.add(butOneDevidedBy);
+                panel.add(butCos);
+                panel.add(butSin);
+                panel.add(butTan);
 		
+                panel.add(butEqual);
 		panel.add(butCancel);
 		
 		but1.addActionListener(this);
@@ -97,8 +110,14 @@ public class UI implements ActionListener {
 		butMinus.addActionListener(this);
 		butMultiply.addActionListener(this);
 		butDivide.addActionListener(this);
-		butEqual.addActionListener(this);
+                butSquare.addActionListener(this);
+                butSquareRoot.addActionListener(this);
+                butOneDevidedBy.addActionListener(this);
+                butCos.addActionListener(this);
+                butSin.addActionListener(this);
+                butTan.addActionListener(this);
 		
+		butEqual.addActionListener(this);
 		butCancel.addActionListener(this);
 
 	}
@@ -190,6 +209,42 @@ public class UI implements ActionListener {
 			minus = 0;
 			multiply = 0;
 			divide = 1;
+		}
+                
+                if(source == butSquare) {
+			num1 = reader();
+                        result = num1*num1;
+			text.setText(Double.toString(result));
+		}
+                
+                if(source == butSquareRoot) {
+			num1 = reader();
+                        result = Math.sqrt(num1);
+			text.setText(Double.toString(result));
+		}
+                
+                if(source == butOneDevidedBy) {
+			num1 = reader();
+                        result = 1/num1;
+			text.setText(Double.toString(result));
+		}
+                
+                if(source == butCos) {
+			num1 = reader();
+                        result = Math.cos(num1);
+			text.setText(Double.toString(result));
+		}
+                
+                if(source == butSin) {
+			num1 = reader();
+                        result = Math.sin(num1);
+			text.setText(Double.toString(result));
+		}
+                
+                if(source == butTan) {
+			num1 = reader();
+                        result = Math.tan(num1);
+			text.setText(Double.toString(result));
 		}
 		
 		if(source == butEqual) {
