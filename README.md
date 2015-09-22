@@ -5,6 +5,9 @@ This calculator is simple with an easy code to help novices learn how to operate
 
 If you use the executable file "calculator.jar" and that it does not run, you can type "java -jar /your_calculator_directory/calculator.jar" in your terminal.
 
+
+![Example: Java Calculator](Screenshots/screenshot.png)
+
 ##AUTHOR
 
 ###Base Application
