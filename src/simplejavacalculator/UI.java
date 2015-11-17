@@ -17,31 +17,37 @@
 package simplejavacalculator;
 
 import java.awt.FlowLayout;
-import javax.swing.*;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 public class UI implements ActionListener {
+	private final JFrame frame;
+	private final JPanel panel;
+	private final JTextArea text;
+	private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
+			butEqual, butCancel, butSquareRoot, butSquare, butOneDevidedBy,
+			butCos, butSin, butTan;
+	private final Calculator calc;
 
-	private JFrame frame;
-	private JPanel panel;
-	private JTextArea text;
-	private JButton but[], butAdd, butMinus, butMultiply, butDivide, butEqual, butCancel, butSquareRoot, butSquare, butOneDevidedBy, butCos, butSin, butTan;
-	private Double num1, num2, result;
-	private int add = 0, minus = 0, multiply = 0, divide = 0;
-	String[] buttonValue = {"0","1","2","3","4","5","6","7","8","9"};
+	private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
+			"7", "8", "9" };
 
 	public UI() {
 		frame = new JFrame("Calculator PH");
 		frame.setResizable(false);
 		panel = new JPanel(new FlowLayout());
-		
-		text = new JTextArea(2,25);
+
+		text = new JTextArea(2, 25);
 		but = new JButton[10];
-		for(int i = 0; i < 10; i++) {
+		for (int i = 0; i < 10; i++) {
 			but[i] = new JButton(String.valueOf(i));
 		}
-		
+
 		butAdd = new JButton("+");
 		butMinus = new JButton("-");
 		butMultiply = new JButton("*");
@@ -53,18 +59,20 @@ public class UI implements ActionListener {
 		butCos = new JButton("Cos");
 		butSin = new JButton("Sin");
 		butTan = new JButton("Tan");
-		
+
 		butCancel = new JButton("C");
+
+		calc = new Calculator();
 	}
-	
+
 	public void init() {
 		frame.setVisible(true);
-		frame.setSize(350,280);
+		frame.setSize(350, 280);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.add(panel);
-		
+
 		panel.add(text);
-		for(int i = 0; i < 10; i++) {
+		for (int i = 0; i < 10; i++) {
 			panel.add(but[i]);
 			but[i].addActionListener(this);
 		}
@@ -82,7 +90,7 @@ public class UI implements ActionListener {
 
 		panel.add(butEqual);
 		panel.add(butCancel);
-		
+
 		butAdd.addActionListener(this);
 		butMinus.addActionListener(this);
 		butMultiply.addActionListener(this);
@@ -93,139 +101,95 @@ public class UI implements ActionListener {
 		butCos.addActionListener(this);
 		butSin.addActionListener(this);
 		butTan.addActionListener(this);
-		
+
 		butEqual.addActionListener(this);
 		butCancel.addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		Object source = e.getSource();
+		final Object source = e.getSource();
 
-		for(int i = 0; i < 10; i++) {
-			if(source == but[i]) {
-				text.append(buttonValue[i]);								
+		for (int i = 0; i < 10; i++) {
+			if (source == but[i]) {
+				text.replaceSelection(buttonValue[i]);
+				return;
 			}
 		}
-		
-		if(source == butAdd) {
-			num1 = reader();
-			text.setText("");
-			add = 1;
-			minus = 0;
-			multiply = 0;
-			divide = 0;
-		}
-		
-		if(source == butAdd) {
-			num1 = reader();
-			text.setText("");
-			add = 1;
-			minus = 0;
-			multiply = 0;
-			divide = 0;
-		}
-		
-		if(source == butMinus) {
-			num1 = reader();
-			text.setText("");
-			add = 0;
-			minus = 1;
-			multiply = 0;
-			divide = 0;
-		}
-		
-		if(source == butMultiply) {
-			num1 = reader();
-			text.setText("");
-			add = 0;
-			minus = 0;
-			multiply = 1;
-			divide = 0;
-		}
-		
-		if(source == butDivide) {
-			num1 = reader();
-			text.setText("");
-			add = 1;
-			minus = 0;
-			multiply = 0;
-			divide = 1;
+
+		if (source == butAdd) {
+			writer(calc.calculateBi(Calculator.BiOperatorModes.add, reader()));
 		}
 
-		if(source == butSquare) {
-			num1 = reader();
-			result = num1*num1;
-			text.setText(Double.toString(result));
+		if (source == butMinus) {
+			writer(calc.calculateBi(Calculator.BiOperatorModes.minus, reader()));
 		}
 
-		if(source == butSquareRoot) {
-			num1 = reader();
-			result = Math.sqrt(num1);
-			text.setText(Double.toString(result));
+		if (source == butMultiply) {
+			writer(calc.calculateBi(Calculator.BiOperatorModes.multiply,
+					reader()));
 		}
 
-		if(source == butOneDevidedBy) {
-			num1 = reader();
-			result = 1/num1;
-			text.setText(Double.toString(result));
+		if (source == butDivide) {
+			writer(calc
+					.calculateBi(Calculator.BiOperatorModes.divide, reader()));
 		}
 
-		if(source == butCos) {
-			num1 = reader();
-			result = Math.cos(num1);
-			text.setText(Double.toString(result));
+		if (source == butSquare) {
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.square,
+					reader()));
 		}
 
-		if(source == butSin) {
-			num1 = reader();
-			result = Math.sin(num1);
-			text.setText(Double.toString(result));
+		if (source == butSquareRoot) {
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot,
+					reader()));
 		}
 
-		if(source == butTan) {
-			num1 = reader();
-			result = Math.tan(num1);
-			text.setText(Double.toString(result));
+		if (source == butOneDevidedBy) {
+			writer(calc.calculateMono(
+					Calculator.MonoOperatorModes.oneDevidedBy, reader()));
 		}
-		
-		if(source == butEqual) {
-			num2 = reader();
-			
-			if(add > 0) {
-				result = num1+num2;
-				text.setText(Double.toString(result));
-			}
-			
-			if(minus > 0) {
-				result = num1-num2;
-				text.setText(Double.toString(result));
-			}
-			
-			if(multiply > 0) {
-				result = num1*num2;
-				text.setText(Double.toString(result));
-			}
-			
-			if(divide > 0) {
-				result = num1/num2;
-				text.setText(Double.toString(result));
-			}
+
+		if (source == butCos) {
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.cos,
+					reader()));
 		}
-		
-		if(source == butCancel) {
-			num1 = 0.0;
-			num2 = 0.0;
-			text.setText("");
+
+		if (source == butSin) {
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.sin,
+					reader()));
 		}
+
+		if (source == butTan) {
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.tan,
+					reader()));
+		}
+
+		if (source == butEqual) {
+			writer(calc.calculateEqual(reader()));
+		}
+
+		if (source == butCancel) {
+			writer(calc.reset());
+		}
+
+		text.selectAll();
 	}
-	
-	public double reader() {
+
+	public Double reader() {
 		Double num;
 		String str;
 		str = text.getText();
 		num = Double.valueOf(str);
-		
-		return num;	
+
+		return num;
+	}
+
+	public void writer(final Double num) {
+		if (Double.isNaN(num)) {
+			text.setText("");
+		} else {
+			text.setText(Double.toString(num));
+		}
 	}
 }
