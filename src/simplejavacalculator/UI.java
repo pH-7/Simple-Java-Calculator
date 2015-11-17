@@ -112,76 +112,84 @@ public class UI implements ActionListener {
 
 		for (int i = 0; i < 10; i++) {
 			if (source == but[i]) {
-				text.append(buttonValue[i]);
+				text.replaceSelection(buttonValue[i]);
+				return;
 			}
 		}
 
 		if (source == butAdd) {
-			calc.setValue(Calculator.BiOperatorModes.add, reader());
-			text.setText("");
+			writer(calc.calculateBi(Calculator.BiOperatorModes.add, reader()));
 		}
 
 		if (source == butMinus) {
-			calc.setValue(Calculator.BiOperatorModes.minus, reader());
-			text.setText("");
+			writer(calc.calculateBi(Calculator.BiOperatorModes.minus, reader()));
 		}
 
 		if (source == butMultiply) {
-			calc.setValue(Calculator.BiOperatorModes.multiply, reader());
-			text.setText("");
+			writer(calc.calculateBi(Calculator.BiOperatorModes.multiply,
+					reader()));
 		}
 
 		if (source == butDivide) {
-			calc.setValue(Calculator.BiOperatorModes.divide, reader());
-			text.setText("");
+			writer(calc
+					.calculateBi(Calculator.BiOperatorModes.divide, reader()));
 		}
 
 		if (source == butSquare) {
-			text.setText(Double.toString(calc.calculateMono(
-					Calculator.MonoOperatorModes.square, reader())));
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.square,
+					reader()));
 		}
 
 		if (source == butSquareRoot) {
-			text.setText(Double.toString(calc.calculateMono(
-					Calculator.MonoOperatorModes.squareRoot, reader())));
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot,
+					reader()));
 		}
 
 		if (source == butOneDevidedBy) {
-			text.setText(Double.toString(calc.calculateMono(
-					Calculator.MonoOperatorModes.oneDevidedBy, reader())));
+			writer(calc.calculateMono(
+					Calculator.MonoOperatorModes.oneDevidedBy, reader()));
 		}
 
 		if (source == butCos) {
-			text.setText(Double.toString(calc.calculateMono(
-					Calculator.MonoOperatorModes.cos, reader())));
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.cos,
+					reader()));
 		}
 
 		if (source == butSin) {
-			text.setText(Double.toString(calc.calculateMono(
-					Calculator.MonoOperatorModes.sin, reader())));
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.sin,
+					reader()));
 		}
 
 		if (source == butTan) {
-			text.setText(Double.toString(calc.calculateMono(
-					Calculator.MonoOperatorModes.tan, reader())));
+			writer(calc.calculateMono(Calculator.MonoOperatorModes.tan,
+					reader()));
 		}
 
 		if (source == butEqual) {
-			text.setText(Double.toString(calc.calculateBi(reader())));
+			writer(calc.calculateEqual(reader()));
 		}
 
 		if (source == butCancel) {
-			calc.setValue(Calculator.BiOperatorModes.normal, 0.0); // reset
-			text.setText("");
+			writer(calc.reset());
 		}
+
+		text.selectAll();
 	}
 
-	public double reader() {
+	public Double reader() {
 		Double num;
 		String str;
 		str = text.getText();
 		num = Double.valueOf(str);
 
 		return num;
+	}
+
+	public void writer(final Double num) {
+		if (Double.isNaN(num)) {
+			text.setText("");
+		} else {
+			text.setText(Double.toString(num));
+		}
 	}
 }
