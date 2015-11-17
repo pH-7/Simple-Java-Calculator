@@ -4,7 +4,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-public class SimpleJavaCalculatorTest {
+public class CalculatorTest {
 
 	@Test
 	public void test() {
