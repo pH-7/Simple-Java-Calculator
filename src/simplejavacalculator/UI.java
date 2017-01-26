@@ -127,22 +127,22 @@ public class UI implements ActionListener {
 
         if (source == butMultiply) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.multiply,
-                    reader()));
+                reader()));
         }
 
         if (source == butDivide) {
             writer(calc
-                    .calculateBi(Calculator.BiOperatorModes.divide, reader()));
+                .calculateBi(Calculator.BiOperatorModes.divide, reader()));
         }
 
         if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square,
-                    reader()));
+                reader()));
         }
 
         if (source == butSquareRoot) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot,
-                    reader()));
+                reader()));
         }
 
         if (source == butOneDevidedBy) {
@@ -152,17 +152,17 @@ public class UI implements ActionListener {
 
         if (source == butCos) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.cos,
-                    reader()));
+                reader()));
         }
 
         if (source == butSin) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.sin,
-                    reader()));
+                reader()));
         }
 
         if (source == butTan) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.tan,
-                    reader()));
+                reader()));
         }
 
         if (source == butEqual) {
