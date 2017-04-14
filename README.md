@@ -15,7 +15,7 @@ If you use the executable file "calculator.jar" and that it does not run, you ca
 
 ### Base Application
 
-[Pierre-Henry Soria](http://ph7.me)
+**[Pierre-Henry Soria](http://ph7.me)**
 
 ### Modifications and Improvements
 
@@ -29,6 +29,6 @@ Pierre-Henry SORIA: pierrehs [AT] hotmail [D0T] com
 Achintha Gunasekara: contact [AT] achinthagunasekara [D0T] com
 
 
-##LICENSE
+## LICENSE
 
 Apache License, Version 2.0 or later; See the license.txt file in the "NotePad" folder.
