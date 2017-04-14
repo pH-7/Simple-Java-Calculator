@@ -8,7 +8,7 @@ If you use the executable file "calculator.jar" and that it does not run, you ca
 
 ![Example: Java Calculator](Screenshots/screenshot.png)
 
-** You might also like my [Simple Java Text Editor](https://github.com/pH-7/Simple-Java-Text-Editor).**
+**You might also like my [Simple Java Text Editor](https://github.com/pH-7/Simple-Java-Text-Editor).**
 
 
 ## AUTHOR
