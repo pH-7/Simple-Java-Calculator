@@ -1,4 +1,4 @@
-#SimpleJavaCalculator
+# Simple Java Calculator
 
 Originally this project was written using Eclipse, but I have migrated it to NetBeans.
 This calculator is simple with an easy code to help novices learn how to operate a calculator.
@@ -8,23 +8,26 @@ If you use the executable file "calculator.jar" and that it does not run, you ca
 
 ![Example: Java Calculator](Screenshots/screenshot.png)
 
-##AUTHOR
+** You might also like my [Simple Java Text Editor](https://github.com/pH-7/Simple-Java-Text-Editor).**
 
-###Base Application
 
-Pierre-Henry SORIA
+## AUTHOR
 
-###Modifications and Improvements
+### Base Application
 
-Achintha Gunasekara
+[Pierre-Henry Soria](http://ph7.me)
 
-http://www.achinthagunasekara.com
+### Modifications and Improvements
 
-##CONTACT
+[Achintha Gunasekara](http://www.achinthagunasekara.com)
 
-Pierre-Henry SORIA: pierrehs@hotmail.com
 
-Achintha Gunasekara: contact@achinthagunasekara.com
+## CONTACT
+
+Pierre-Henry SORIA: pierrehs [AT] hotmail [D0T] com
+
+Achintha Gunasekara: contact [AT] achinthagunasekara [D0T] com
+
 
 ##LICENSE
 
