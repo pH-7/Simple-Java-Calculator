@@ -89,7 +89,7 @@ public class Calculator {
             return log10(num);
         }
         if (newMode == MonoOperatorModes.rate) {
-           return num/100;
+           return num / 100;
         }
         
 
