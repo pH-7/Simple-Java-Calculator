@@ -31,7 +31,7 @@ public class UI implements ActionListener {
     private final JTextArea text;
     private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
             butEqual, butCancel, butSquareRoot, butSquare, butOneDevidedBy,
-            butCos, butSin, butTan,butxpowerofy,butlog,butrate;
+            butCos, butSin, butTan, butxpowerofy, butlog, butrate;
     private final Calculator calc;
 
     private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
@@ -59,9 +59,9 @@ public class UI implements ActionListener {
         butCos = new JButton("Cos");
         butSin = new JButton("Sin");
         butTan = new JButton("Tan");
-        butxpowerofy=new JButton("x^y");
-        butlog=new JButton("log10(x)");
-        butrate=new JButton("x%");
+        butxpowerofy = new JButton("x^y");
+        butlog = new JButton("log10(x)");
+        butrate = new JButton("x%");
 
         butCancel = new JButton("C");
 
