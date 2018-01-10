@@ -10,8 +10,10 @@
  * @create      2012-03-30
  *
  * @modifiedby  Achintha Gunasekara
+ * @modifiedby  Kydon Chantzaridis
  * @modweb      http://www.achinthagunasekara.com
  * @modemail    contact@achinthagunasekara.com
+ * @modemail    kchantza@csd.auth.gr
  */
 
 package simplejavacalculator;
@@ -70,15 +72,17 @@ public class UI implements ActionListener {
 
     public void init() {
         frame.setVisible(true);
-        frame.setSize(350, 280);
+        frame.setSize(330, 280);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel);
 
         panel.add(text);
-        for (int i = 0; i < 10; i++) {
+       
+        for (int i = 1; i < 10; i++) {
             panel.add(but[i]);
             but[i].addActionListener(this);
         }
+        panel.add(but[0]);
 
         panel.add(butAdd);
         panel.add(butMinus);
