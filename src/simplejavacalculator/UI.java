@@ -10,8 +10,10 @@
  * @create      2012-03-30
  *
  * @modifiedby  Achintha Gunasekara
+ * @modifiedby  Kydon Chantzaridis
  * @modweb      http://www.achinthagunasekara.com
  * @modemail    contact@achinthagunasekara.com
+ * @modemail    kchantza@csd.auth.gr
  */
 
 package simplejavacalculator;
@@ -31,7 +33,7 @@ public class UI implements ActionListener {
     private final JTextArea text;
     private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
             butEqual, butCancel, butSquareRoot, butSquare, butOneDevidedBy,
-            butCos, butSin, butTan;
+            butCos, butSin, butTan, butxpowerofy, butlog, butrate;
     private final Calculator calc;
 
     private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
@@ -59,6 +61,9 @@ public class UI implements ActionListener {
         butCos = new JButton("Cos");
         butSin = new JButton("Sin");
         butTan = new JButton("Tan");
+        butxpowerofy = new JButton("x^y");
+        butlog = new JButton("log10(x)");
+        butrate = new JButton("x%");
 
         butCancel = new JButton("C");
 
@@ -67,15 +72,17 @@ public class UI implements ActionListener {
 
     public void init() {
         frame.setVisible(true);
-        frame.setSize(350, 280);
+        frame.setSize(330, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel);
 
         panel.add(text);
-        for (int i = 0; i < 10; i++) {
+       
+        for (int i = 1; i < 10; i++) {
             panel.add(but[i]);
             but[i].addActionListener(this);
         }
+        panel.add(but[0]);
 
         panel.add(butAdd);
         panel.add(butMinus);
@@ -87,6 +94,9 @@ public class UI implements ActionListener {
         panel.add(butCos);
         panel.add(butSin);
         panel.add(butTan);
+        panel.add(butxpowerofy);
+        panel.add(butlog);
+        panel.add(butrate);
 
         panel.add(butEqual);
         panel.add(butCancel);
@@ -101,6 +111,9 @@ public class UI implements ActionListener {
         butCos.addActionListener(this);
         butSin.addActionListener(this);
         butTan.addActionListener(this);
+        butxpowerofy.addActionListener(this);
+        butlog.addActionListener(this);
+        butrate.addActionListener(this);
 
         butEqual.addActionListener(this);
         butCancel.addActionListener(this);
@@ -134,6 +147,10 @@ public class UI implements ActionListener {
             writer(calc
                 .calculateBi(Calculator.BiOperatorModes.divide, reader()));
         }
+        if (source == butxpowerofy) {
+            writer(calc
+                .calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));
+        }
 
         if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square,
@@ -162,6 +179,14 @@ public class UI implements ActionListener {
 
         if (source == butTan) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.tan,
+                reader()));
+        }
+        if (source == butlog) {
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.log,
+                reader()));
+        }
+         if (source == butrate) {
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.rate,
                 reader()));
         }
 
