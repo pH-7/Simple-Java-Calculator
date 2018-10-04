@@ -24,9 +24,9 @@ If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work,
 
 ## CONTACT
 
-Pierre-Henry SORIA: pierrehs [AT] hotmail [D0T] com
+Pierre-Henry SORIA: pierrehs [AT] hotmail [DOT] com
 
-Achintha Gunasekara: contact [AT] achinthagunasekara [D0T] com
+Achintha Gunasekara: contact [AT] achinthagunasekara [DOT] com
 
 
 ## LICENSE
