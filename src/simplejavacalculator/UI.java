@@ -11,9 +11,11 @@
  *
  * @modifiedby  Achintha Gunasekara
  * @modifiedby  Kydon Chantzaridis
+ * @modifiedby  Dragatis Nikolaos
  * @modweb      http://www.achinthagunasekara.com
  * @modemail    contact@achinthagunasekara.com
  * @modemail    kchantza@csd.auth.gr
+ * @modemail    dragatisn@csd.auth.gr
  */
 
 package simplejavacalculator;
@@ -33,7 +35,8 @@ public class UI implements ActionListener {
     private final JTextArea text;
     private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
             butEqual, butCancel, butSquareRoot, butSquare, butOneDevidedBy,
-            butCos, butSin, butTan, butxpowerofy, butlog, butrate;
+            butCos, butSin, butTan, butxpowerofy, butlog, butrate,
+            butFactorial, butNaturalLog, butMod;
     private final Calculator calc;
 
     private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
@@ -64,6 +67,9 @@ public class UI implements ActionListener {
         butxpowerofy = new JButton("x^y");
         butlog = new JButton("log10(x)");
         butrate = new JButton("x%");
+        butFactorial = new JButton("x!");
+        butNaturalLog = new JButton("ln");
+        butMod = new JButton("Mod");
 
         butCancel = new JButton("C");
 
@@ -78,7 +84,7 @@ public class UI implements ActionListener {
 
         panel.add(text);
        
-        for (int i = 1; i < 10; i++) {
+        for (int i = 0; i < 10; i++) {
             panel.add(but[i]);
             but[i].addActionListener(this);
         }
@@ -97,6 +103,9 @@ public class UI implements ActionListener {
         panel.add(butxpowerofy);
         panel.add(butlog);
         panel.add(butrate);
+        panel.add(butFactorial);
+        panel.add(butNaturalLog);
+        panel.add(butMod);
 
         panel.add(butEqual);
         panel.add(butCancel);
@@ -114,6 +123,9 @@ public class UI implements ActionListener {
         butxpowerofy.addActionListener(this);
         butlog.addActionListener(this);
         butrate.addActionListener(this);
+        butFactorial.addActionListener(this);
+        butNaturalLog.addActionListener(this);
+        butMod.addActionListener(this);
 
         butEqual.addActionListener(this);
         butCancel.addActionListener(this);
@@ -185,10 +197,20 @@ public class UI implements ActionListener {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.log,
                 reader()));
         }
-         if (source == butrate) {
+        if (source == butrate) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.rate,
                 reader()));
         }
+        if (source == butFactorial) {
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.factorial, reader()));
+        }
+        if (source == butNaturalLog) {
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.naturalLog, reader()));
+        }
+        if (source == butMod) {
+            writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
+        }
+
 
         if (source == butEqual) {
             writer(calc.calculateEqual(reader()));

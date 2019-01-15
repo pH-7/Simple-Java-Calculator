@@ -6,11 +6,11 @@ import static java.lang.Math.pow;
 
 public class Calculator {
     public enum BiOperatorModes {
-        normal, add, minus, multiply, divide , xpowerofy 
+        normal, add, minus, multiply, divide , xpowerofy, mod
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDevidedBy, cos, sin, tan ,log , rate
+        square, squareRoot, oneDevidedBy, cos, sin, tan ,log , rate, factorial, naturalLog
     }
 
     private Double num1, num2;
@@ -34,6 +34,9 @@ public class Calculator {
         }
         if (mode == BiOperatorModes.xpowerofy) {
             return pow(num1,num2);
+        }
+        if (mode == BiOperatorModes.mod) {
+            return num1 % num2;
         }
 
         // never reach
@@ -91,11 +94,24 @@ public class Calculator {
         if (newMode == MonoOperatorModes.rate) {
            return num / 100;
         }
-        
+        if (newMode == MonoOperatorModes.factorial) {
+            return factorial(num);
+        }
+        if (newMode == MonoOperatorModes.naturalLog) {
+            return log(num);
+        }
 
 
         // never reach
         throw new Error();
+    }
+
+    private double factorial(double num)
+    {
+        if (num == 0)
+            return 1;
+        else
+            return (num * factorial(num - 1));
     }
 
 }
