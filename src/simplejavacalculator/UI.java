@@ -83,6 +83,7 @@ public class UI implements ActionListener {
             but[i].addActionListener(this);
         }
         panel.add(but[0]);
+        but[0].addActionListener(this);
 
         panel.add(butAdd);
         panel.add(butMinus);
