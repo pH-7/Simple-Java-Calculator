@@ -33,11 +33,11 @@ public class UI implements ActionListener {
     private final JTextArea text;
     private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
             butEqual, butCancel, butSquareRoot, butSquare, butOneDevidedBy,
-            butCos, butSin, butTan, butxpowerofy, butlog, butrate;
+            butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs;
     private final Calculator calc;
 
     private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
-            "7", "8", "9" };
+            "7", "8", "9", "10" };
 
     public UI() {
         frame = new JFrame("Calculator PH");
@@ -64,6 +64,7 @@ public class UI implements ActionListener {
         butxpowerofy = new JButton("x^y");
         butlog = new JButton("log10(x)");
         butrate = new JButton("x%");
+        butabs = new JButton("abs(x)");
 
         butCancel = new JButton("C");
 
@@ -98,6 +99,7 @@ public class UI implements ActionListener {
         panel.add(butxpowerofy);
         panel.add(butlog);
         panel.add(butrate);
+        panel.add(butabs);
 
         panel.add(butEqual);
         panel.add(butCancel);
@@ -115,6 +117,7 @@ public class UI implements ActionListener {
         butxpowerofy.addActionListener(this);
         butlog.addActionListener(this);
         butrate.addActionListener(this);
+        butabs.addActionListener(this);
 
         butEqual.addActionListener(this);
         butCancel.addActionListener(this);
@@ -190,6 +193,9 @@ public class UI implements ActionListener {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.rate,
                 reader()));
         }
+         if(source == butabs){
+             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
+         }
 
         if (source == butEqual) {
             writer(calc.calculateEqual(reader()));
