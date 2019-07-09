@@ -1,6 +1,6 @@
 # Simple Java Calculator
 
-<img src="Logotype primary Horizontal.png" width="60%" height="60%" />
+![Logo Simple Java Calculator](logo.png)
 
 This project was originally written using Eclipse, but I have migrated it to NetBeans.
 This calculator is simple with an easy code to help novices learn how to create a calculator program with Java.
