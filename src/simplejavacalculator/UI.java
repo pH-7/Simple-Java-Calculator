@@ -21,9 +21,12 @@ package simplejavacalculator;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -40,8 +43,12 @@ public class UI implements ActionListener {
             "7", "8", "9"};
 
     public UI() {
-        frame = new JFrame("Calculator PH");
-        frame.setResizable(false);
+        // frame = new JFrame("Calculator PH");             // original code
+        frame = new JFrame("Open Source Calculator");       // new code - update the window title
+        
+        // frame.setResizable(false);                       // original code
+         frame.setResizable(true);                          // new code - set window to be resizable
+        
         panel = new JPanel(new FlowLayout());
 
         text = new JTextArea(2, 25);
@@ -73,10 +80,33 @@ public class UI implements ActionListener {
 
     public void init() {
         frame.setVisible(true);
-        frame.setSize(330, 300);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.add(panel);
+        frame.setSize(330, 300);        
+        // frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // original code
+        
+        /*
+        * New Code
+        * 
+        * Set default close operation to do nothing, implement a WindowListener / WindowAdapter 
+        * and necessary imports in order to prompt the user before leaving the calculator window.
+        */
+        frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        
+        frame.addWindowListener(new WindowAdapter() {
+        @Override
+        public void windowClosing(WindowEvent w) {
+            int confirmation;
+            confirmation = JOptionPane.showConfirmDialog(null, "Exit calculator application?", "Confirm Exit", JOptionPane.YES_NO_OPTION);
+            if (confirmation == JOptionPane.YES_OPTION) {
+                exit(frame);
+            }
+        }
 
+        private void exit(JFrame frame) {
+            frame.dispose();
+        }
+    });
+
+        frame.add(panel);
         panel.add(text);
        
         for (int i = 1; i < 10; i++) {
