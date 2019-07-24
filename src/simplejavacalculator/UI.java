@@ -234,7 +234,7 @@ public class UI implements ActionListener {
         if (source == butCancel) {
             writer(calc.reset());
         }
-
+        
         text.selectAll();
     }
 
