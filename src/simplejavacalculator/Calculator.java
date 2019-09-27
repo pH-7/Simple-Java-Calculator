@@ -21,7 +21,12 @@ public class Calculator {
             return num2;
         }
         if (mode == BiOperatorModes.add) {
-            return num1 + num2;
+            if(num2!=0) {
+                return num1 + num2;
+            }
+            else {
+                return num1;
+            }
         }
         if (mode == BiOperatorModes.minus) {
             return num1 - num2;
