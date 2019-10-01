@@ -1,5 +1,6 @@
 package simplejavacalculator;
 
+import static java.lang.Double.NaN;
 import static java.lang.Math.log;
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
@@ -50,7 +51,7 @@ public class Calculator {
             num2 = 0.0;
             num1 = num;
             mode = newMode;
-            return Double.NaN;
+            return NaN;
         } else {
             num2 = num;
             num1 = calculateBiImpl();
@@ -68,7 +69,7 @@ public class Calculator {
         num1 = 0.0;
         mode = BiOperatorModes.normal;
 
-        return Double.NaN;
+        return NaN;
     }
 
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
@@ -88,7 +89,12 @@ public class Calculator {
             return Math.sin(num);
         }
         if (newMode == MonoOperatorModes.tan) {
-            return Math.tan(num);
+            if(num==0 || num%180==0)
+                return 0.0;
+            else if(num%90==0 && num%180!=0)
+                return NaN;
+            else
+                return Math.tan(num);
         }
         if (newMode == MonoOperatorModes.log) {
             return log10(num);
