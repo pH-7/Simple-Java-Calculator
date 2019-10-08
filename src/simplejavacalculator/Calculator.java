@@ -1,12 +1,16 @@
 package simplejavacalculator;
 
+import static java.lang.Math.log;
+import static java.lang.Math.log10;
+import static java.lang.Math.pow;
+
 public class Calculator {
     public enum BiOperatorModes {
-        normal, add, minus, multiply, divide
+        normal, add, minus, multiply, divide , xpowerofy 
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDevidedBy, cos, sin, tan
+        square, squareRoot, oneDevidedBy, cos, sin, tan ,log , rate, abs
     }
 
     private Double num1, num2;
@@ -27,6 +31,9 @@ public class Calculator {
         }
         if (mode == BiOperatorModes.divide) {
             return num1 / num2;
+        }
+        if (mode == BiOperatorModes.xpowerofy) {
+            return pow(num1,num2);
         }
 
         // never reach
@@ -78,6 +85,17 @@ public class Calculator {
         if (newMode == MonoOperatorModes.tan) {
             return Math.tan(num);
         }
+        if (newMode == MonoOperatorModes.log) {
+            return log10(num);
+        }
+        if (newMode == MonoOperatorModes.rate) {
+           return num / 100;
+        }
+        if(newMode == MonoOperatorModes.abs){
+            return Math.abs(num);
+        }
+        
+
 
         // never reach
         throw new Error();
