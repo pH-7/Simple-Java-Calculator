@@ -1,3 +1,14 @@
+/**
+ * @name        Simple Java Calculator
+ * @package     ph.calculator
+ * @file        Main.java
+ * @author      SORIA Pierre-Henry
+ * @email       pierrehs@hotmail.com
+ * @link        http://github.com/pH-7
+ * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
+ * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
+ */
+
 package simplejavacalculator;
 
 import static java.lang.Math.log;

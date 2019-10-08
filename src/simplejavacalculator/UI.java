@@ -1,9 +1,9 @@
 /**
  * @name        Simple Java Calculator
- * @package ph.calculator
- * @file UI.java
- * @author SORIA Pierre-Henry
- * @email pierrehs@hotmail.com
+ * @package     ph.calculator
+ * @file        UI.java
+ * @author      SORIA Pierre-Henry
+ * @email       pierrehs@hotmail.com
  * @link        http://github.com/pH-7
  * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
  * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
