@@ -1,9 +1,9 @@
 /**
  * @name        Simple Java Calculator
- * @package     ph.calculator
- * @file        UI.java
- * @author      SORIA Pierre-Henry
- * @email       pierrehs@hotmail.com
+ * @package ph.calculator
+ * @file UI.java
+ * @author SORIA Pierre-Henry
+ * @email pierrehs@hotmail.com
  * @link        http://github.com/pH-7
  * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
  * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
@@ -15,7 +15,6 @@
  * @modemail    contact@achinthagunasekara.com
  * @modemail    kchantza@csd.auth.gr
  */
-
 package simplejavacalculator;
 
 import java.awt.FlowLayout;
@@ -28,16 +27,17 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 public class UI implements ActionListener {
+
     private final JFrame frame;
     private final JPanel panel;
     private final JTextArea text;
     private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
             butEqual, butCancel, butSquareRoot, butSquare, butOneDevidedBy,
-            butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs;
+            butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
     private final Calculator calc;
 
-    private final String[] buttonValue = { "0", "1", "2", "3", "4", "5", "6",
-            "7", "8", "9"};
+    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
+        "7", "8", "9"};
 
     public UI() {
         frame = new JFrame("Calculator PH");
@@ -67,6 +67,7 @@ public class UI implements ActionListener {
         butabs = new JButton("abs(x)");
 
         butCancel = new JButton("C");
+        butBinary = new JButton("Bin");
 
         calc = new Calculator();
     }
@@ -100,6 +101,8 @@ public class UI implements ActionListener {
         panel.add(butlog);
         panel.add(butrate);
         panel.add(butabs);
+        panel.add(butabs);
+        panel.add(butBinary);
 
         panel.add(butEqual);
         panel.add(butCancel);
@@ -118,6 +121,7 @@ public class UI implements ActionListener {
         butlog.addActionListener(this);
         butrate.addActionListener(this);
         butabs.addActionListener(this);
+        butBinary.addActionListener(this);
 
         butEqual.addActionListener(this);
         butCancel.addActionListener(this);
@@ -168,7 +172,7 @@ public class UI implements ActionListener {
 
         if (source == butOneDevidedBy) {
             writer(calc.calculateMono(
-                    Calculator.MonoOperatorModes.oneDevidedBy, reader()));
+                Calculator.MonoOperatorModes.oneDevidedBy, reader()));
         }
 
         if (source == butCos) {
@@ -205,7 +209,19 @@ public class UI implements ActionListener {
             writer(calc.reset());
         }
 
+        if (source == butBinary) {
+            parsetoBinary();
+        }
+
         text.selectAll();
+    }
+
+    private void parsetoBinary() {
+        try {
+            text.setText("" + Long.toBinaryString(Long.parseLong(text.getText())));
+        } catch (NumberFormatException ex) {
+            System.err.println("Error while parse to binary." + ex.toString());
+        }
     }
 
     public Double reader() {
