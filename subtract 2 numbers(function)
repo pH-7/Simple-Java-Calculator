@@ -1,0 +1,4 @@
+public void subtract(int a,int b)
+{ int c= Math.abs(a-b);
+System.out.println(c);
+}
