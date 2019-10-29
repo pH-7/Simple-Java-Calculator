@@ -22,12 +22,11 @@ public class Calculator {
             return num2;
         }
         if (mode == BiOperatorModes.add) {
-            if(num2!=0) {
+            if (num2 != 0) {
                 return num1 + num2;
             }
-            else {
-                return num1;
-            }
+
+            return num1;
         }
         if (mode == BiOperatorModes.minus) {
             return num1 - num2;
@@ -89,12 +88,14 @@ public class Calculator {
             return Math.sin(num);
         }
         if (newMode == MonoOperatorModes.tan) {
-            if(num==0 || num%180==0)
+            if (num == 0 || num % 180 == 0) {
                 return 0.0;
-            else if(num%90==0 && num%180!=0)
+            }
+            if (num % 90 == 0 && num % 180 != 0)
                 return NaN;
-            else
-                return Math.tan(num);
+            }
+
+            return Math.tan(num);
         }
         if (newMode == MonoOperatorModes.log) {
             return log10(num);
@@ -102,11 +103,9 @@ public class Calculator {
         if (newMode == MonoOperatorModes.rate) {
            return num / 100;
         }
-        if(newMode == MonoOperatorModes.abs){
+        if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
         }
-        
-
 
         // never reach
         throw new Error();
