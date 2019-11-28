@@ -11,6 +11,7 @@
 
 package simplejavacalculator;
 
+import static java.lang.Double.NaN;
 import static java.lang.Math.log;
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
@@ -33,7 +34,11 @@ public class Calculator {
             return num2;
         }
         if (mode == BiOperatorModes.add) {
-            return num1 + num2;
+            if (num2 != 0) {
+                return num1 + num2;
+            }
+
+            return num1;
         }
         if (mode == BiOperatorModes.minus) {
             return num1 - num2;
@@ -57,7 +62,7 @@ public class Calculator {
             num2 = 0.0;
             num1 = num;
             mode = newMode;
-            return Double.NaN;
+            return NaN;
         } else {
             num2 = num;
             num1 = calculateBiImpl();
@@ -75,7 +80,7 @@ public class Calculator {
         num1 = 0.0;
         mode = BiOperatorModes.normal;
 
-        return Double.NaN;
+        return NaN;
     }
 
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
@@ -95,6 +100,13 @@ public class Calculator {
             return Math.sin(num);
         }
         if (newMode == MonoOperatorModes.tan) {
+            if (num == 0 || num % 180 == 0) {
+                return 0.0;
+            }
+            if (num % 90 == 0 && num % 180 != 0)
+                return NaN;
+            }
+
             return Math.tan(num);
         }
         if (newMode == MonoOperatorModes.log) {
@@ -103,10 +115,10 @@ public class Calculator {
         if (newMode == MonoOperatorModes.rate) {
            return num / 100;
         }
-        if(newMode == MonoOperatorModes.abs){
+        if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
         }
-        
+
         // never reach
         throw new Error();
     }
