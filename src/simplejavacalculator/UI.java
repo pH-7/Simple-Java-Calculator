@@ -15,7 +15,27 @@
  * @modemail    contact@achinthagunasekara.com
  * @modemail    kchantza@csd.auth.gr
  */
-
+/*
+Date	Description	Resource
+1 minute ago	Declare "butAdd" on a separate line.	UI.java
+1 minute ago	Declare "butBinary" on a separate line.	UI.java
+1 minute ago	Declare "butCancel" on a separate line.	UI.java
+1 minute ago	Declare "butCos" on a separate line.	UI.java
+1 minute ago	Declare "butDivide" on a separate line.	UI.java
+1 minute ago	Declare "butEqual" on a separate line.	UI.java
+1 minute ago	Declare "butMinus" on a separate line.	UI.java
+1 minute ago	Declare "butMultiply" on a separate line.	UI.java
+1 minute ago	Declare "butOneDevidedBy" on a separate line.	UI.java
+1 minute ago	Declare "butSin" on a separate line.	UI.java
+1 minute ago	Declare "butSquare" on a separate line.	UI.java
+1 minute ago	Declare "butSquareRoot" on a separate line.	UI.java
+1 minute ago	Declare "butTan" on a separate line.	UI.java
+1 minute ago	Declare "butabs" on a separate line.	UI.java
+1 minute ago	Declare "butlog" on a separate line.	UI.java
+1 minute ago	Declare "butrate" on a separate line.	UI.java
+1 minute ago	Declare "butxpowerofy" on a separate line.	UI.java
+1 minute ago	Move the array designator from the variable to the type.	UI.java
+*/
 package simplejavacalculator;
 
 import java.awt.FlowLayout;
