@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDevidedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDevidedBy, cos, sin, tan ,log , rate, abs,factorial 
     }
 
     private Double num1, num2;
@@ -105,22 +105,35 @@ public class Calculator {
             }
             if (num % 90 == 0 && num % 180 != 0)
                 return NaN;
-            }
+            
 
             return Math.tan(num);
         }
-        if (newMode == MonoOperatorModes.log) {
+
+        if (newMode == MonoOperatorModes.log){
             return log10(num);
         }
-        if (newMode == MonoOperatorModes.rate) {
+        if (newMode == MonoOperatorModes.rate){
            return num / 100;
         }
         if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
         }
+        if(newMode ==MonoOperatorModes.factorial)
+        {   
+            if(num==0){
+                num=1.0;
+                return num;
+            }
+            int factorial=(int)Math.round(num);
+            num=1.0;
+            for( int i=1; i<=factorial; i++){
+                num=num*i;
+            }
+            return num ;
+        }
 
         // never reach
         throw new Error();
     }
-
-}
+    }
