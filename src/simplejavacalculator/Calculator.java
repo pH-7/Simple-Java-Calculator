@@ -82,6 +82,18 @@ public class Calculator {
 
         return NaN;
     }
+    /**
+     *  function to calculate the factorial of a number
+     * @param num
+     * @return 
+     */
+    public Double fact(double num){             
+         if (num== 0)  
+            return 1.0;    
+         else   
+            return(num * fact(num-1));     
+    }
+    
 
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
         if (newMode == MonoOperatorModes.square) {
@@ -121,16 +133,7 @@ public class Calculator {
         }
         if(newMode ==MonoOperatorModes.factorial)
         {   
-            if(num==0){
-                num=1.0;
-                return num;
-            }
-            int factorial=(int)Math.round(num);
-            num=1.0;
-            for( int i=1; i<=factorial; i++){
-                num=num*i;
-            }
-            return num ;
+            return fact(num) ;
         }
 
         // never reach

@@ -204,10 +204,10 @@ public class UI implements ActionListener {
         }
          if(source == butabs){
              writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
-         }
+        }
          if(source ==butFactorial){
              writer(calc.calculateMono(Calculator.MonoOperatorModes.factorial,reader()));
-         }
+        }
 
         if (source == butEqual) {
             writer(calc.calculateEqual(reader()));
