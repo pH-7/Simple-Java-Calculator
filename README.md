@@ -1,4 +1,4 @@
-# Simple Java Calculator
+Rathna coding# Simple Java Calculator
 
 ![Logo Simple Java Calculator](logo.png)
 
