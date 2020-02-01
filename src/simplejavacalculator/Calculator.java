@@ -103,7 +103,7 @@ public class Calculator {
             if (num == 0 || num % 180 == 0) {
                 return 0.0;
             }
-            if (num % 90 == 0 && num % 180 != 0)
+            if (num % 90 == 0 && num % 180 != 0) {
                 return NaN;
             }
 
