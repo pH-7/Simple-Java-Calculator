@@ -66,7 +66,7 @@ public class UI implements ActionListener {
       image = new ImageIcon("icon/icon.png");      
       
       panel = new JPanel();
-      panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+      panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
       panelSub1 = new JPanel(new FlowLayout());
       panelSub2 = new JPanel(new FlowLayout());
       panelSub3 = new JPanel(new FlowLayout());
