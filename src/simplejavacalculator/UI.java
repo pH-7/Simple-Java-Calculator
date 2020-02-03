@@ -91,7 +91,7 @@ public class UI implements ActionListener {
       butMultiply = new JButton("*");      
       butDivide = new JButton("/");      
       butEqual = new JButton("=");      
-      butSquareRoot = new JButton("âˆš");      
+      butSquareRoot = new JButton("sqrt");      
       butSquare = new JButton("x*x");      
       butOneDevidedBy = new JButton("1/x");      
       butCos = new JButton("Cos");      
