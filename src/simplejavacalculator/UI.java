@@ -46,6 +46,7 @@ public class UI implements ActionListener {
         panel = new JPanel(new FlowLayout());
 
         text = new JTextArea(2, 25);
+        text.setEditable(false); 
         but = new JButton[10];
         for (int i = 0; i < 10; i++) {
             but[i] = new JButton(String.valueOf(i));
