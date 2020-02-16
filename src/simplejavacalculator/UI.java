@@ -63,7 +63,7 @@ public class UI implements ActionListener {
    public UI() {
       frame = new JFrame("Calculator PH");
       
-      image = new ImageIcon("..//Simple-Java-Calculator-master/icon/icon.png");      
+      image = new ImageIcon("/icon/icon.png");      
       
       panel = new JPanel();
       panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
