@@ -14,8 +14,6 @@ class BufferedImageCustom {
       throws IOException {
       Image image;
       
-      //the image here is not even an image file
-      //but rather a binary data
       InputStream bis = getClass().getResourceAsStream("/icon/icon.png");
       BufferedImage bImage2 = ImageIO.read(bis);
       image = bImage2;
