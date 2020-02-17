@@ -127,7 +127,7 @@ public class UI implements ActionListener {
         butEqual.addActionListener(this);
         butCancel.addActionListener(this);
     }
-
+//Simple calculator
     @Override
     public void actionPerformed(ActionEvent e) {
         final Object source = e.getSource();
