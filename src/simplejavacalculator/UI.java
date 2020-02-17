@@ -29,9 +29,10 @@ import javax.swing.JTextArea;
 import java.awt.Font;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
-import java.awt.Toolkit;
+
 import java.awt.Image;
 import javax.swing.ImageIcon; 
+import java.io.*;
 
 public class UI implements ActionListener {
    
@@ -58,12 +59,14 @@ public class UI implements ActionListener {
    
    private final Font font;
    private final Font textFont;
-   ImageIcon image;
+   private ImageIcon image;
+   private BufferedImageCustom imageReturn;
    
-   public UI() {
+   public UI() throws IOException {
       frame = new JFrame("Calculator PH");
       
-      image = new ImageIcon("icon/icon.png");      
+      imageReturn = new BufferedImageCustom();
+      image = new ImageIcon(imageReturn.imageReturn());      
       
       panel = new JPanel();
       panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -114,6 +117,7 @@ public class UI implements ActionListener {
       frame.setLocationRelativeTo(null); 
       frame.setResizable(false);
       frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+      
       frame.setIconImage(image.getImage());
       
       text.setFont(textFont);
