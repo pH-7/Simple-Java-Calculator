@@ -23,6 +23,8 @@ If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work,
 
 [Achintha Gunasekara](http://www.achinthagunasekara.com)
 
+**xdvrx1**
+
 
 ## CONTACT
 
@@ -30,6 +32,7 @@ Pierre-Henry SORIA: pierrehs [AT] hotmail [D0T] com
 
 Achintha Gunasekara: contact [AT] achinthagunasekara [D0T] com
 
+**xdvrx1** : mongAlvarez@gmail.com
 
 ## LICENSE
 
