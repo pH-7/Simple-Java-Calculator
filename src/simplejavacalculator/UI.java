@@ -193,8 +193,7 @@ public class UI implements ActionListener {
       panelSub8.add(butBinary);
       panel.add(panelSub8);
       
-      but[0].addActionListener(this);      
-      for (int i = 1; i < 10; i++) {
+      for (int i = 0; i < 10; i++) {
          but[i].addActionListener(this);
       }      
       butAdd.addActionListener(this);
