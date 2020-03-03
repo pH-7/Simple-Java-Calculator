@@ -23,6 +23,8 @@ If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work,
 
 [Achintha Gunasekara](http://www.achinthagunasekara.com)
 
+[xdvrx1](https://github.com/xdvrx1)
+
 
 ## CONTACT
 
