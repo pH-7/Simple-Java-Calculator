@@ -79,7 +79,7 @@ public class UI implements ActionListener {
       panelSub7 = new JPanel(new FlowLayout());
       panelSub8 = new JPanel(new FlowLayout());
       
-      font = new Font("Consolas",Font.PLAIN, 18);
+      font = new Font("TimesRoman",Font.ITALIC, 20);
       
       text = new JTextArea(1, 30);
       
