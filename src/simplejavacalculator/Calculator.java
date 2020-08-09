@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDevidedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
     }
 
     private Double num1, num2;
@@ -90,14 +90,14 @@ public class Calculator {
         if (newMode == MonoOperatorModes.squareRoot) {
             return Math.sqrt(num);
         }
-        if (newMode == MonoOperatorModes.oneDevidedBy) {
+        if (newMode == MonoOperatorModes.oneDividedBy) {
             return 1 / num;
         }
         if (newMode == MonoOperatorModes.cos) {
-            return Math.cos(num);
+            return Math.cos(Math.toRadians(num));
         }
         if (newMode == MonoOperatorModes.sin) {
-            return Math.sin(num);
+            return Math.sin(Math.toRadians(num));
         }
         if (newMode == MonoOperatorModes.tan) {
             if (num == 0 || num % 180 == 0) {
@@ -107,7 +107,7 @@ public class Calculator {
                 return NaN;
             }
 
-            return Math.tan(num);
+            return Math.tan(Math.toRadians(num));
         }
         if (newMode == MonoOperatorModes.log) {
             return log10(num);
