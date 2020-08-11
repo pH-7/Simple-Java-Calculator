@@ -47,6 +47,7 @@ public class UI implements ActionListener {
    private final JPanel panelSub6;
    private final JPanel panelSub7;
    private final JPanel panelSub8;
+   private final JPanel panelSub9; //Add panelSub9
    
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
@@ -78,6 +79,7 @@ public class UI implements ActionListener {
       panelSub6 = new JPanel(new FlowLayout());
       panelSub7 = new JPanel(new FlowLayout());
       panelSub8 = new JPanel(new FlowLayout());
+      panelSub9 = new JPanel(new FlowLayout()); //Create panelSub9 object
       
       font = new Font("Consolas",Font.PLAIN, 18);
       
@@ -168,23 +170,26 @@ public class UI implements ActionListener {
       panelSub4.add(but[8]);
       panelSub4.add(but[9]);
       panelSub4.add(Box.createHorizontalStrut(15));
-      panelSub4.add(butEqual);
+      //Switch position of Cancel and Equal Button
       panelSub4.add(butCancel);
+      panelSub4.add(butEqual);
       panel.add(panelSub4);
       
       panelSub5.add(but[0]);
-      panelSub5.add(Box.createHorizontalStrut(210));
+      panelSub5.add(Box.createHorizontalStrut(112));
       panel.add(panelSub5);
       
-      panelSub6.add(butSquare);
-      panelSub6.add(butSquareRoot);
-      panelSub6.add(butOneDevidedBy);
-      panelSub6.add(butxpowerofy);
+      //Switch panelSub7 to panelSub6
+      panelSub6.add(butCos);
+      panelSub6.add(butSin);
+      panelSub6.add(butTan);
       panel.add(panelSub6);
       
-      panelSub7.add(butCos);
-      panelSub7.add(butSin);
-      panelSub7.add(butTan);
+      //Switch panelSub6 to panelSub7
+      panelSub7.add(butSquare);
+      panelSub7.add(butSquareRoot);
+      panelSub7.add(butOneDevidedBy);
+      panelSub7.add(butxpowerofy);
       panel.add(panelSub7);
       
       panelSub8.add(butlog);
