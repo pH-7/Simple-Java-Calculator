@@ -76,7 +76,7 @@ class CalculatorTest {
 	@Test
 	void CalculateMonoOneDividedByTest() {
 		Calculator calculator = new Calculator();
-		Assertions.assertEquals(0.10, calculator.calculateMono(Calculator.MonoOperatorModes.oneDevidedBy, 10.0));
+		Assertions.assertEquals(0.10, calculator.calculateMono(Calculator.MonoOperatorModes.oneDividedBy, 10.0));
 	}
 	
 	@Test
