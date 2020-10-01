@@ -15,11 +15,11 @@ If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work,
 
 ## AUTHOR
 
-### Base Application
+### Base Application:
 
 **[Pierre-Henry Soria](http://ph7.me)**
 
-### Modifications and Improvements
+### Modifications and Improvements:
 
 [Achintha Gunasekara](http://www.achinthagunasekara.com)
 
