@@ -16,15 +16,19 @@
 
 package simplejavacalculator;
 
-public class SimpleJavaCalculator {
-   
-   public static void main(String[] args) {
-      try {
+public class SimpleJavaCalculator 
+{
+   //main method
+   public static void main(String [] args) 
+   {
+      try //loop initialisation
+      {
          UI uiCal = new UI();
          uiCal.init();
       }
-      catch (Exception e) {
-         System.out.println(e.getMessage());   
+      catch (Exception e) //conditional control statements 
+      {
+         System.out.println(e.getMessage()); //print output   
       }
       
    }
