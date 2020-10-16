@@ -1,4 +1,4 @@
-# Simple Java Calculator
+# Simple Java Calculator - An Amazing Project
 
 ![Logo Simple Java Calculator](logo.png)
 
@@ -26,7 +26,7 @@ If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work,
 [xdvrx1](https://github.com/xdvrx1)
 
 
-## CONTACT
+## CONTACT Details
 
 Pierre-Henry SORIA: pierrehs [AT] hotmail [D0T] com
 
