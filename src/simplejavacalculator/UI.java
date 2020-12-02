@@ -115,8 +115,7 @@ public class UI implements ActionListener {
       frame.setSize(450, 450);
       frame.setLocationRelativeTo(null); 
       frame.setResizable(false);
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-      
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setIconImage(image.getImage());
       
       text.setFont(textFont);
@@ -222,7 +221,7 @@ public class UI implements ActionListener {
    @Override
    public void actionPerformed(ActionEvent e) {
       final Object source = e.getSource();
-
+      Double checkNum = null;
 
       for (int i = 0; i < 10; i++) {
          if (source == but[i]) {
@@ -230,8 +229,6 @@ public class UI implements ActionListener {
             return;
          }
       }
-
-      Double checkNum = null;
 
       try {
          checkNum = Double.parseDouble(text.getText());
