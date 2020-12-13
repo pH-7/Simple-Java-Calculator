@@ -232,11 +232,11 @@ public class UI implements ActionListener {
 
       try {
          checkNum = Double.parseDouble(text.getText());
-      } catch(NumberFormatException k){
+      } catch(NumberFormatException k) {
 
       }
 
-      if(checkNum != null || source == butCancel){
+      if (checkNum != null || source == butCancel) {
          if (source == butAdd) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.add, reader()));
             text.replaceSelection(butAdd.getText());
@@ -256,6 +256,7 @@ public class UI implements ActionListener {
             writer(calc.calculateBi(Calculator.BiOperatorModes.divide, reader()));
             text.replaceSelection(butDivide.getText());
          }
+         
          if (source == butxpowerofy) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));
          }
@@ -297,6 +298,7 @@ public class UI implements ActionListener {
          if (source == butBinary)
             parsetoBinary();
       }
+
       text.selectAll();
    }
    
