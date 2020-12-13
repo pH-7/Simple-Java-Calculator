@@ -113,11 +113,9 @@ public class UI implements ActionListener {
    
    public void init() {      
       frame.setSize(450, 450);
-      frame.setVisible(true);
       frame.setLocationRelativeTo(null); 
       frame.setResizable(false);
-      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
-      
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       frame.setIconImage(image.getImage());
       
       text.setFont(textFont);
@@ -217,94 +215,88 @@ public class UI implements ActionListener {
       butCancel.addActionListener(this);
       
       frame.add(panel);
+      frame.setVisible(true);
    }
    
    @Override
    public void actionPerformed(ActionEvent e) {
       final Object source = e.getSource();
-      
+      Double checkNum = null;
+
       for (int i = 0; i < 10; i++) {
          if (source == but[i]) {
             text.replaceSelection(buttonValue[i]);
             return;
          }
       }
-      
-      if (source == butAdd) {
-         writer(calc.calculateBi(Calculator.BiOperatorModes.add, reader()));
+
+      try {
+         checkNum = Double.parseDouble(text.getText());
+      } catch(NumberFormatException k){
+
       }
-      
-      if (source == butMinus) {
-         writer(calc.calculateBi(Calculator.BiOperatorModes.minus, reader()));
+
+      if(checkNum != null || source == butCancel){
+         if (source == butAdd) {
+            writer(calc.calculateBi(Calculator.BiOperatorModes.add, reader()));
+            text.replaceSelection(butAdd.getText());
+         }
+
+         if (source == butMinus) {
+            writer(calc.calculateBi(Calculator.BiOperatorModes.minus, reader()));
+            text.replaceSelection(butMinus.getText());
+         }
+
+         if (source == butMultiply) {
+            writer(calc.calculateBi(Calculator.BiOperatorModes.multiply, reader()));
+            text.replaceSelection(butMultiply.getText());
+         }
+
+         if (source == butDivide) {
+            writer(calc.calculateBi(Calculator.BiOperatorModes.divide, reader()));
+            text.replaceSelection(butDivide.getText());
+         }
+         if (source == butxpowerofy) {
+            writer(calc.calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));
+         }
+
+         if (source == butSquare) {
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));
+         }
+
+         if (source == butSquareRoot)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot, reader()));
+
+         if (source == butOneDividedBy)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.oneDividedBy, reader()));
+
+         if (source == butCos)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.cos, reader()));
+
+         if (source == butSin)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.sin, reader()));
+
+         if (source == butTan)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.tan, reader()));
+
+         if (source == butlog)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.log, reader()));
+
+         if (source == butrate)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.rate, reader()));
+
+         if (source == butabs)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
+
+         if (source == butEqual)
+            writer(calc.calculateEqual(reader()));
+
+         if (source == butCancel)
+            writer(calc.reset());
+
+         if (source == butBinary)
+            parsetoBinary();
       }
-      
-      if (source == butMultiply) {
-         writer(calc.calculateBi(Calculator.BiOperatorModes.multiply,
-                                 reader()));
-      }
-      
-      if (source == butDivide) {
-         writer(calc
-                   .calculateBi(Calculator.BiOperatorModes.divide, reader()));
-      }
-      if (source == butxpowerofy) {
-         writer(calc
-                   .calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));
-      }
-      
-      if (source == butSquare) {
-         writer(calc.calculateMono(Calculator.MonoOperatorModes.square,
-                                   reader()));
-      }
-      
-      if (source == butSquareRoot) {
-         writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot,
-                                   reader()));
-      }
-      
-      if (source == butOneDividedBy) {
-         writer(calc.calculateMono(
-                                   Calculator.MonoOperatorModes.oneDividedBy, reader()));
-      }
-      
-      if (source == butCos) {
-         writer(calc.calculateMono(Calculator.MonoOperatorModes.cos,
-                                   reader()));
-      }
-      
-      if (source == butSin) {
-         writer(calc.calculateMono(Calculator.MonoOperatorModes.sin,
-                                   reader()));
-      }
-      
-      if (source == butTan) {
-         writer(calc.calculateMono(Calculator.MonoOperatorModes.tan,
-                                   reader()));
-      }
-      if (source == butlog) {
-         writer(calc.calculateMono(Calculator.MonoOperatorModes.log,
-                                   reader()));
-      }
-      if (source == butrate) {
-         writer(calc.calculateMono(Calculator.MonoOperatorModes.rate,
-                                   reader()));
-      }
-      if(source == butabs){
-         writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
-      }
-      
-      if (source == butEqual) {
-         writer(calc.calculateEqual(reader()));
-      }
-      
-      if (source == butCancel) {
-         writer(calc.reset());
-      }
-      
-      if (source == butBinary) {
-         parsetoBinary();
-      }
-      
       text.selectAll();
    }
    
