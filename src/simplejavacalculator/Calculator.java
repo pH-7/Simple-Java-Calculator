@@ -30,28 +30,26 @@ public class Calculator {
     private BiOperatorModes mode = BiOperatorModes.normal;
 
     private Double calculateBiImpl() {
-        if (mode == BiOperatorModes.normal) {
+        if (mode == BiOperatorModes.normal) 
             return num2;
-        }
+        
         if (mode == BiOperatorModes.add) {
-            if (num2 != 0) {
+            if (num2 != 0) 
                 return num1 + num2;
-            }
-
             return num1;
         }
-        if (mode == BiOperatorModes.minus) {
+        if (mode == BiOperatorModes.minus) 
             return num1 - num2;
-        }
-        if (mode == BiOperatorModes.multiply) {
+        
+        if (mode == BiOperatorModes.multiply) 
             return num1 * num2;
-        }
-        if (mode == BiOperatorModes.divide) {
+        
+        if (mode == BiOperatorModes.divide) 
             return num1 / num2;
-        }
-        if (mode == BiOperatorModes.xpowerofy) {
+        
+        if (mode == BiOperatorModes.xpowerofy) 
             return pow(num1,num2);
-        }
+        
 
         // never reach
         throw new Error();
@@ -84,40 +82,40 @@ public class Calculator {
     }
 
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
-        if (newMode == MonoOperatorModes.square) {
+        if (newMode == MonoOperatorModes.square) 
             return num * num;
-        }
-        if (newMode == MonoOperatorModes.squareRoot) {
+        
+        if (newMode == MonoOperatorModes.squareRoot) 
             return Math.sqrt(num);
-        }
-        if (newMode == MonoOperatorModes.oneDividedBy) {
+        
+        if (newMode == MonoOperatorModes.oneDividedBy) 
             return 1 / num;
-        }
-        if (newMode == MonoOperatorModes.cos) {
+        
+        if (newMode == MonoOperatorModes.cos) 
             return Math.cos(Math.toRadians(num));
-        }
-        if (newMode == MonoOperatorModes.sin) {
+        
+        if (newMode == MonoOperatorModes.sin) 
             return Math.sin(Math.toRadians(num));
-        }
+        
         if (newMode == MonoOperatorModes.tan) {
-            if (num == 0 || num % 180 == 0) {
+            if (num == 0 || num % 180 == 0) 
                 return 0.0;
-            }
-            if (num % 90 == 0 && num % 180 != 0) {
+            
+            if (num % 90 == 0 && num % 180 != 0) 
                 return NaN;
-            }
+            
 
             return Math.tan(Math.toRadians(num));
         }
-        if (newMode == MonoOperatorModes.log) {
+        if (newMode == MonoOperatorModes.log) 
             return log10(num);
-        }
-        if (newMode == MonoOperatorModes.rate) {
+        
+        if (newMode == MonoOperatorModes.rate) 
            return num / 100;
-        }
-        if (newMode == MonoOperatorModes.abs){
+        
+        if (newMode == MonoOperatorModes.abs)
             return Math.abs(num);
-        }
+        
 
         // never reach
         throw new Error();
