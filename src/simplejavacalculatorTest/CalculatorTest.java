@@ -115,5 +115,21 @@ class CalculatorTest {
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, -3.0));
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, 3.0));
 	}
+	
+	@Test
+	void CalculateMonoFactTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(6, calculator.calculateMono(Calculator.MonoOperatorModes.fact, 3.0));
+		Assertions.assertEquals(120, calculator.calculateMono(Calculator.MonoOperatorModes.fact, 5.0));
+	}
+	
+	@Test
+	void CalculateMonoFactE() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(1, calculator.calculateMono(Calculator.MonoOperatorModes.fact, 0.0));
+		Assertions.assertEquals(54.59815003, calculator.calculateMono(Calculator.MonoOperatorModes.fact, 4.0));
+	}
+	
+	
 
 }
