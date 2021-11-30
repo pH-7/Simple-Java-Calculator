@@ -126,8 +126,8 @@ class CalculatorTest {
 	@Test
 	void CalculateMonoFactE() {
 		Calculator calculator = new Calculator();
-		Assertions.assertEquals(1, calculator.calculateMono(Calculator.MonoOperatorModes.fact, 0.0));
-		Assertions.assertEquals(54.59815003, calculator.calculateMono(Calculator.MonoOperatorModes.fact, 4.0));
+		Assertions.assertEquals(1, calculator.calculateMono(Calculator.MonoOperatorModes.e, 0.0));
+		Assertions.assertEquals(54.59815003, calculator.calculateMono(Calculator.MonoOperatorModes.e, 4.0));
 	}
 	
 	
