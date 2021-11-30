@@ -51,7 +51,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butFact, butE;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -105,7 +105,9 @@ public class UI implements ActionListener {
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
       butCancel = new JButton("C");      
-      butBinary = new JButton("Bin");      
+      butBinary = new JButton("Bin"); 
+      butFact = new JButton("x!"); 
+      butE = new JButton("e^x"); 
       
       calc = new Calculator();
       
@@ -141,6 +143,8 @@ public class UI implements ActionListener {
       butabs.setFont(font);
       butCancel.setFont(font);
       butBinary.setFont(font); 
+      butFact.setFont(font); 
+      butE.setFont(font); 
       
       panel.add(Box.createHorizontalStrut(100));
       panelSub1.add(text);
@@ -166,8 +170,11 @@ public class UI implements ActionListener {
       panelSub4.add(but[8]);
       panelSub4.add(but[9]);
       panelSub4.add(Box.createHorizontalStrut(15));
+      panelSub4.add(butFact);
+      panelSub4.add(butE);
       panelSub4.add(butEqual);
       panelSub4.add(butCancel);
+      
       panel.add(panelSub4);
       
       panelSub5.add(Box.createHorizontalStrut(92));
@@ -211,6 +218,8 @@ public class UI implements ActionListener {
       butabs.addActionListener(this);
       butBinary.addActionListener(this);
       
+      butFact.addActionListener(this);
+      butE.addActionListener(this);
       butEqual.addActionListener(this);
       butCancel.addActionListener(this);
       
@@ -288,6 +297,12 @@ public class UI implements ActionListener {
 
          if (source == butabs)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
+         
+         if (source == butFact)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.fact, reader()));
+         
+         if (source == butE)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.e, reader()));
 
          if (source == butEqual)
             writer(calc.calculateEqual(reader()));
