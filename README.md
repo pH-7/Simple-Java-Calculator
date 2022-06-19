@@ -10,10 +10,10 @@ If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work,
 
 ![Example: Java Calculator](Screenshots/screenshot.png)
 
-**You might also like my [Simple Java Text Editor](https://github.com/pH-7/Simple-Java-Text-Editor).**
+**👉 You might also like my [Simple Java Text Editor](https://github.com/pH-7/Simple-Java-Text-Editor).**
 
 
-## AUTHOR
+## 💡 Authors
 
 ### Base Application
 
@@ -26,13 +26,13 @@ If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work,
 [xdvrx1](https://github.com/xdvrx1)
 
 
-## CONTACT
+## 📮 Contact
 
 Pierre-Henry SORIA: pierrehs [AT] hotmail [D0T] com
 
 Achintha Gunasekara: contact [AT] achinthagunasekara [D0T] com
 
 
-## LICENSE
+## ⚖️ License
 
 Apache License, Version 2.0 or later; See the license.txt file in the "NotePad" folder.
