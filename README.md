@@ -17,13 +17,12 @@ If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work,
 
 ### Base Application
 
-**[Pierre-Henry Soria](http://ph7.me)**
+- **[Pierre-Henry Soria](https://ph7.me)**
 
 ### Modifications and Improvements
 
-[Achintha Gunasekara](http://www.achinthagunasekara.com)
-
-[xdvrx1](https://github.com/xdvrx1)
+- [Achintha Gunasekara](http://www.achinthagunasekara.com)
+- [xdvrx1](https://github.com/xdvrx1)
 
 
 ## 📮 Contact
