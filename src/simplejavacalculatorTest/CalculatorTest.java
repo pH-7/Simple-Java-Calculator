@@ -98,6 +98,12 @@ class CalculatorTest {
 	}
 	
 	@Test
+	void CalculateMonoInverseCosTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(90.0, calculator.calculateMono(Calculator.MonoOperatorModes.inverseCos, 0.0), 0.0000000001);
+	}
+	
+	@Test
 	void CalculateMonoLogTest() {
 		Calculator calculator = new Calculator();
 		Assertions.assertEquals(2.0, calculator.calculateMono(Calculator.MonoOperatorModes.log, 100.0));
