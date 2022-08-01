@@ -51,7 +51,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
+      butCos, butSin, butTan, butInverseCos, butxpowerofy, butlog, butrate, butabs, butBinary;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -99,7 +99,8 @@ public class UI implements ActionListener {
       butOneDividedBy = new JButton("1/x");      
       butCos = new JButton("Cos");      
       butSin = new JButton("Sin");      
-      butTan = new JButton("Tan");      
+      butTan = new JButton("Tan");
+      butInverseCos = new JButton("Cos^-1");
       butxpowerofy = new JButton("x^y");      
       butlog = new JButton("log10(x)");      
       butrate = new JButton("x%");      
@@ -135,6 +136,7 @@ public class UI implements ActionListener {
       butCos.setFont(font);
       butSin.setFont(font);
       butTan.setFont(font);
+      butInverseCos.setFont(font);
       butxpowerofy.setFont(font);
       butlog.setFont(font);
       butrate.setFont(font);
@@ -184,6 +186,7 @@ public class UI implements ActionListener {
       panelSub7.add(butCos);
       panelSub7.add(butSin);
       panelSub7.add(butTan);
+      panelSub7.add(butInverseCos);
       panel.add(panelSub7);
       
       panelSub8.add(butlog);
@@ -205,6 +208,7 @@ public class UI implements ActionListener {
       butCos.addActionListener(this);
       butSin.addActionListener(this);
       butTan.addActionListener(this);
+      butInverseCos.addActionListener(this);
       butxpowerofy.addActionListener(this);
       butlog.addActionListener(this);
       butrate.addActionListener(this);
@@ -279,6 +283,9 @@ public class UI implements ActionListener {
 
          if (source == butTan)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.tan, reader()));
+         
+         if (source == butInverseCos)
+             writer(calc.calculateMono(Calculator.MonoOperatorModes.inverseCos, reader()));
 
          if (source == butlog)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.log, reader()));

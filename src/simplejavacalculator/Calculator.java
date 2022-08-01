@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan, inverseCos ,log , rate, abs
     }
 
     private Double num1, num2;
@@ -108,6 +108,9 @@ public class Calculator {
             }
 
             return Math.tan(Math.toRadians(num));
+        }
+        if(newMode == MonoOperatorModes.inverseCos) {
+        	return Math.toDegrees(Math.acos(num));
         }
         if (newMode == MonoOperatorModes.log) {
             return log10(num);
