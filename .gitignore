@@ -6,3 +6,4 @@
 # Mac OS System
 .DS_Store*
 ._*
+/bin/
