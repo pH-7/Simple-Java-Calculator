@@ -68,6 +68,12 @@ class CalculatorTest {
 	}
 	
 	@Test
+	void CalculateMonoCubeTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(27.0, calculator.calculateMono(Calculator.MonoOperatorModes.cube, 3.0));
+	}
+	
+	@Test
 	void CalculateMonoSquareRootTest() {
 		Calculator calculator = new Calculator();
 		Assertions.assertEquals(5.0, calculator.calculateMono(Calculator.MonoOperatorModes.squareRoot, 25.0));
@@ -82,19 +88,19 @@ class CalculatorTest {
 	@Test
 	void CalculateMonoSinTest() {
 		Calculator calculator = new Calculator();
-		Assertions.assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.sin, java.lang.Math.PI / 6), 0.0000000001);
+		Assertions.assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.sin, Math.toDegrees(java.lang.Math.PI) / 6), 0.0000000001);
 	}
 	
 	@Test
 	void CalculateMonoCosTest() {
 		Calculator calculator = new Calculator();
-		Assertions.assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.cos, java.lang.Math.PI / 3), 0.0000000001);
+		Assertions.assertEquals(0.5, calculator.calculateMono(Calculator.MonoOperatorModes.cos, Math.toDegrees(java.lang.Math.PI) / 3), 0.0000000001);
 	}
 	
 	@Test
 	void CalculateMonoTanTest() {
 		Calculator calculator = new Calculator();
-		Assertions.assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, java.lang.Math.PI / 4), 0.0000000001);
+		Assertions.assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.tan, Math.toDegrees(java.lang.Math.PI) / 4), 0.0000000001);
 	}
 	
 	@Test
@@ -115,5 +121,4 @@ class CalculatorTest {
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, -3.0));
 		Assertions.assertEquals(3.0, calculator.calculateMono(Calculator.MonoOperatorModes.abs, 3.0));
 	}
-
 }
