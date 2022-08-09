@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs, cube
     }
 
     private Double num1, num2;
