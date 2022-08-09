@@ -132,6 +132,7 @@ public class UI implements ActionListener {
       butEqual.setFont(font);
       butSquareRoot.setFont(font);
       butSquare.setFont(font);
+      butCube.setFont(font);
       butOneDividedBy.setFont(font);
       butCos.setFont(font);
       butSin.setFont(font);
@@ -177,6 +178,7 @@ public class UI implements ActionListener {
       panel.add(panelSub5);
       
       panelSub6.add(butSquare);
+      panelSub6.add(butCube);
       panelSub6.add(butSquareRoot);
       panelSub6.add(butOneDividedBy);
       panelSub6.add(butxpowerofy);
@@ -201,6 +203,7 @@ public class UI implements ActionListener {
       butMultiply.addActionListener(this);
       butDivide.addActionListener(this);
       butSquare.addActionListener(this);
+      butCube.addActionListener(this);
       butSquareRoot.addActionListener(this);
       butOneDividedBy.addActionListener(this);
       butCos.addActionListener(this);
@@ -265,6 +268,10 @@ public class UI implements ActionListener {
          if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));
          }
+         
+         if (source == butCube) {
+             writer(calc.calculateMono(Calculator.MonoOperatorModes.cube, reader()));
+          }
 
          if (source == butSquareRoot)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot, reader()));
