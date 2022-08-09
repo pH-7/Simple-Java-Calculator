@@ -51,7 +51,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butCube;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -98,14 +98,15 @@ public class UI implements ActionListener {
       butSquare = new JButton("x*x");      
       butOneDividedBy = new JButton("1/x");      
       butCos = new JButton("Cos");      
-      butSin = new JButton("Sin");      
+      butSin = new JButton("Sin"); 
       butTan = new JButton("Tan");      
       butxpowerofy = new JButton("x^y");      
       butlog = new JButton("log10(x)");      
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
       butCancel = new JButton("C");      
-      butBinary = new JButton("Bin");      
+      butBinary = new JButton("Bin"); 
+      butCube = new JButton("x^3"); 
       
       calc = new Calculator();
       
