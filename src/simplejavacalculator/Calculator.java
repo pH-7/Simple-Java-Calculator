@@ -87,6 +87,9 @@ public class Calculator {
         if (newMode == MonoOperatorModes.square) {
             return num * num;
         }
+        if (newMode == MonoOperatorModes.cube) {
+            return num * num * num;
+        }
         if (newMode == MonoOperatorModes.squareRoot) {
             return Math.sqrt(num);
         }
