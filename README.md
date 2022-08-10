@@ -28,7 +28,7 @@ java -jar /your_calculator_directory/SimpleJavaCalculator.jar`
 
 **[My Simple Java Text Editor](https://github.com/pH-7/Simple-Java-Text-Editor).**
 
-<img src="https://github.com/pH-7/Simple-Java-Text-Editor/blob/master/Screenshots/find-replace-word-in-java-text-editor.png" alt="Open-Source Simple Java Calculator" />
+<a href="https://github.com/pH-7/Simple-Java-Text-Editor"><img src="https://github.com/pH-7/Simple-Java-Text-Editor/blob/master/Screenshots/find-replace-word-in-java-text-editor.png" alt="Open-Source Simple Java Text Editor" /></a>
 
 ## 💡 Authors
 
