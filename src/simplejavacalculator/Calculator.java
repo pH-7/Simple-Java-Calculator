@@ -15,6 +15,7 @@ import static java.lang.Double.NaN;
 import static java.lang.Math.log;
 import static java.lang.Math.log10;
 import static java.lang.Math.pow;
+import static java.lang.Math.exp;
 
 public class Calculator {
 
@@ -23,7 +24,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs, fact, e 
     }
 
     private Double num1, num2;
@@ -118,7 +119,15 @@ public class Calculator {
         if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
         }
-
+        if (newMode == MonoOperatorModes.fact) {
+            int fact = 1;   
+            for(int i = 1;i <= num; i++) {    
+                fact=fact*i;    
+            }   
+        }
+        if (newMode == MonoOperatorModes.e) {
+            return Math.exp(num);  
+        }
         // never reach
         throw new Error();
     }
