@@ -28,7 +28,8 @@ java -jar /your_calculator_directory/SimpleJavaCalculator.jar`
 
 **[My Simple Java Text Editor](https://github.com/pH-7/Simple-Java-Text-Editor).**
 
-<a href="https://github.com/pH-7/Simple-Java-Text-Editor"><img src="https://github.com/pH-7/Simple-Java-Text-Editor/blob/master/Screenshots/find-replace-word-in-java-text-editor.png" alt="Open-Source Simple Java Text Editor" /></a>
+[![Open-Source Simple Java Text Editor](https://github.com/pH-7/Simple-Java-Text-Editor/blob/master/Screenshots/find-replace-word-in-java-text-editor.png)](https://github.com/pH-7/Simple-Java-Text-Editor "Open-Source Simple Java Text Editor")
+
 
 ## 💡 Authors
 
@@ -44,7 +45,7 @@ java -jar /your_calculator_directory/SimpleJavaCalculator.jar`
 
 ## 📮 Contact
 
-Pierre-Henry SORIA: pierrehs [AT] hotmail [D0T] com
+Pierre-Henry Soria: pierrehs [AT] hotmail [D0T] com
 
 Achintha Gunasekara: contact [AT] achinthagunasekara [D0T] com
 
