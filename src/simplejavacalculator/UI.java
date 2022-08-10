@@ -51,7 +51,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butCube;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -98,14 +98,15 @@ public class UI implements ActionListener {
       butSquare = new JButton("x*x");      
       butOneDividedBy = new JButton("1/x");      
       butCos = new JButton("Cos");      
-      butSin = new JButton("Sin");      
+      butSin = new JButton("Sin"); 
       butTan = new JButton("Tan");      
       butxpowerofy = new JButton("x^y");      
       butlog = new JButton("log10(x)");      
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
       butCancel = new JButton("C");      
-      butBinary = new JButton("Bin");      
+      butBinary = new JButton("Bin"); 
+      butCube = new JButton("x^3"); 
       
       calc = new Calculator();
       
@@ -131,6 +132,7 @@ public class UI implements ActionListener {
       butEqual.setFont(font);
       butSquareRoot.setFont(font);
       butSquare.setFont(font);
+      butCube.setFont(font);
       butOneDividedBy.setFont(font);
       butCos.setFont(font);
       butSin.setFont(font);
@@ -176,6 +178,7 @@ public class UI implements ActionListener {
       panel.add(panelSub5);
       
       panelSub6.add(butSquare);
+      panelSub6.add(butCube);
       panelSub6.add(butSquareRoot);
       panelSub6.add(butOneDividedBy);
       panelSub6.add(butxpowerofy);
@@ -200,6 +203,7 @@ public class UI implements ActionListener {
       butMultiply.addActionListener(this);
       butDivide.addActionListener(this);
       butSquare.addActionListener(this);
+      butCube.addActionListener(this);
       butSquareRoot.addActionListener(this);
       butOneDividedBy.addActionListener(this);
       butCos.addActionListener(this);
@@ -264,6 +268,10 @@ public class UI implements ActionListener {
          if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));
          }
+         
+         if (source == butCube) {
+             writer(calc.calculateMono(Calculator.MonoOperatorModes.cube, reader()));
+          }
 
          if (source == butSquareRoot)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot, reader()));

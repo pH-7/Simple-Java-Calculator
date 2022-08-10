@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs, cube
     }
 
     private Double num1, num2;
@@ -86,6 +86,9 @@ public class Calculator {
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
         if (newMode == MonoOperatorModes.square) {
             return num * num;
+        }
+        if (newMode == MonoOperatorModes.cube) {
+            return num * num * num;
         }
         if (newMode == MonoOperatorModes.squareRoot) {
             return Math.sqrt(num);
