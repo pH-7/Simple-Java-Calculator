@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan, inverseSin, log, rate, abs
     }
 
     private Double num1, num2;
@@ -117,6 +117,9 @@ public class Calculator {
         }
         if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
+        }
+        if (newMode == MonoOperatorModes.inverseSin){
+        	return Math.toDegrees(Math.asin(num));
         }
 
         // never reach
