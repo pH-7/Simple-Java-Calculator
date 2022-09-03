@@ -50,7 +50,7 @@ public class UI implements ActionListener {
    
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
-      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
+      butEqual, butCancel, butSquareRoot, butSquare, butCube, butOneDividedBy,
       butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
    private final Calculator calc;
    
@@ -95,7 +95,8 @@ public class UI implements ActionListener {
       butDivide = new JButton("/");      
       butEqual = new JButton("=");      
       butSquareRoot = new JButton("sqrt");      
-      butSquare = new JButton("x*x");      
+      butSquare = new JButton("x*x");
+      butCube = new JButton("x*x*x");
       butOneDividedBy = new JButton("1/x");      
       butCos = new JButton("Cos");      
       butSin = new JButton("Sin");      
@@ -131,6 +132,7 @@ public class UI implements ActionListener {
       butEqual.setFont(font);
       butSquareRoot.setFont(font);
       butSquare.setFont(font);
+      butCube.setFont(font);
       butOneDividedBy.setFont(font);
       butCos.setFont(font);
       butSin.setFont(font);
@@ -177,6 +179,7 @@ public class UI implements ActionListener {
       
       panelSub6.add(butSquare);
       panelSub6.add(butSquareRoot);
+      panelSub6.add(butCube);
       panelSub6.add(butOneDividedBy);
       panelSub6.add(butxpowerofy);
       panel.add(panelSub6);
@@ -201,6 +204,7 @@ public class UI implements ActionListener {
       butDivide.addActionListener(this);
       butSquare.addActionListener(this);
       butSquareRoot.addActionListener(this);
+      butCube.addActionListener(this);
       butOneDividedBy.addActionListener(this);
       butCos.addActionListener(this);
       butSin.addActionListener(this);
@@ -264,6 +268,10 @@ public class UI implements ActionListener {
          if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));
          }
+         
+         if (source == butCube) {
+             writer(calc.calculateMono(Calculator.MonoOperatorModes.cube, reader()));
+          }
 
          if (source == butSquareRoot)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.squareRoot, reader()));
