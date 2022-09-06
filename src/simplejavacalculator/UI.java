@@ -34,7 +34,12 @@ import java.awt.Image;
 import javax.swing.ImageIcon; 
 import java.io.*;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class UI implements ActionListener {
+   
+   private static Timer timer=new Timer();
    
    private final JFrame frame;
    
@@ -321,7 +326,13 @@ public class UI implements ActionListener {
    
    public void writer(final Double num) {
       if (Double.isNaN(num)) {
-         text.setText("");
+         text.setText("Error");
+         timer.schedule(new TimerTask(){
+            @Override
+            public void run(){
+               text.setText("");
+            }
+         },2000);
       } else {
          text.setText(Double.toString(num));
       }
