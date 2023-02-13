@@ -19,7 +19,7 @@ import static java.lang.Math.pow;
 public class Calculator {
 
     public enum BiOperatorModes {
-        normal, add, minus, multiply, divide , xpowerofy 
+        normal, add, minus, multiply, divide , xpowerofy, div, mod
     }
 
     public enum MonoOperatorModes {
@@ -51,6 +51,32 @@ public class Calculator {
         }
         if (mode == BiOperatorModes.xpowerofy) {
             return pow(num1,num2);
+        }
+        if (mode == BiOperatorModes.div) {
+            if(num1 % 1==0 && num2 % 1==0){ //check if both numbers are integers
+                double temp1  = num1;
+                double temp2 = num2;
+                int numa = (int) temp1;
+                int numb = (int) temp2;
+                int result = numa/numb;
+                return 1.0*result;
+            }
+            else{
+                return NaN;
+            }
+        }
+        if (mode == BiOperatorModes.mod) {
+            if(num1 % 1==0 && num2 % 1==0){ //check if both numbers are integers
+                double temp1  = num1;
+                double temp2 = num2;
+                int numa = (int) temp1;
+                int numb = (int) temp2;
+                int result = numa % numb;
+                return 1.0*result;
+            }
+            else{
+                return  NaN;
+            }
         }
 
         // never reach

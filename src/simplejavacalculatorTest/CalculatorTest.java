@@ -44,6 +44,39 @@ class CalculatorTest {
 		calculator.calculateBi(Calculator.BiOperatorModes.divide, 6.4);
 		Assertions.assertEquals(3.2, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));
 	}
+
+	@Test
+	void calculateBiDivTest() {
+		Calculator calculator = new Calculator();
+		calculator.calculateBi(Calculator.BiOperatorModes.div, 5.0);
+		Assertions.assertEquals(2.0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));
+		calculator.calculateBi(Calculator.BiOperatorModes.div, 13.0);
+		Assertions.assertEquals(4.0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 3.0));
+		calculator.calculateBi(Calculator.BiOperatorModes.div, 18.0);
+		Assertions.assertEquals(4.0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 4.0));
+		calculator.calculateBi(Calculator.BiOperatorModes.div, 5.1);
+		Assertions.assertEquals(NaN, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));
+		calculator.calculateBi(Calculator.BiOperatorModes.div, 5.0);
+		Assertions.assertEquals(NaN, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.3));
+	}
+
+
+	@Test
+	void calculateModTest() {
+		Calculator calculator = new Calculator();
+		calculator.calculateBi(Calculator.BiOperatorModes.mod, 5.0);
+		Assertions.assertEquals(1.0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));
+		calculator.calculateBi(Calculator.BiOperatorModes.mod, 14.0);
+		Assertions.assertEquals(2.0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 3.0));
+		calculator.calculateBi(Calculator.BiOperatorModes.mod, 20.0);
+		Assertions.assertEquals(0, calculator.calculateBi(Calculator.BiOperatorModes.normal, 4.0));
+		calculator.calculateBi(Calculator.BiOperatorModes.mod, 5.1);
+		Assertions.assertEquals(NaN, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));
+		calculator.calculateBi(Calculator.BiOperatorModes.mod, 5.0);
+		Assertions.assertEquals(NaN, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.3));
+	}
+
+
 	
 	@Test
 	void calculateEqualTest() {
