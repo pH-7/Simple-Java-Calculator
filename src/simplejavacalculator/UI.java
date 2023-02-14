@@ -51,7 +51,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butdiv, butmod, butlog, butrate, butabs, butBinary, butPI;
+      butCos, butSin, butTan, butxpowerofy, butdiv, butmod, butlog, butrate, butabs, butBinary, butPI, butxfact;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -102,6 +102,7 @@ public class UI implements ActionListener {
       butSin = new JButton("Sin");      
       butTan = new JButton("Tan");      
       butxpowerofy = new JButton("x^y");
+      butxfact = new JButton("x!");
       butdiv = new JButton("div");
       butmod = new JButton("mod");
       butlog = new JButton("log10(x)");      
@@ -140,6 +141,7 @@ public class UI implements ActionListener {
       butSin.setFont(font);
       butTan.setFont(font);
       butxpowerofy.setFont(font);
+      butxfact.setFont(font);
       butdiv.setFont(font);
       butmod.setFont(font);
       butlog.setFont(font);
@@ -186,6 +188,7 @@ public class UI implements ActionListener {
       panelSub6.add(butSquareRoot);
       panelSub6.add(butOneDividedBy);
       panelSub6.add(butxpowerofy);
+      panelSub6.add(butxfact);
       panel.add(panelSub6);
       
       panelSub7.add(butCos);
@@ -218,6 +221,7 @@ public class UI implements ActionListener {
       butSin.addActionListener(this);
       butTan.addActionListener(this);
       butxpowerofy.addActionListener(this);
+      butxfact.addActionListener(this);
       butlog.addActionListener(this);
       butrate.addActionListener(this);
       butabs.addActionListener(this);
@@ -286,6 +290,9 @@ public class UI implements ActionListener {
 
          if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));
+         }
+         if (source == butxfact){
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.xfact, reader()));
          }
 
          if (source == butSquareRoot)

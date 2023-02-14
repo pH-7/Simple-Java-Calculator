@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs, xfact
     }
 
     private Double num1, num2;
@@ -122,25 +122,24 @@ public class Calculator {
         if (newMode == MonoOperatorModes.cos) {
             double wantedCos;
             wantedCos = Math.cos(num);
-            wantedCos= Math.round(wantedCos*10000000.0)/10000000.0; //round to 7th decimal place
+            wantedCos= Math.round(wantedCos*10000000000.0)/10000000000.0; //round to 10th decimal place
             return wantedCos;
         }
         if (newMode == MonoOperatorModes.sin) {
             double wantedSin;
             wantedSin = Math.sin(num);
-            wantedSin= Math.round(wantedSin*10000000.0)/10000000.0;
+            wantedSin= Math.round(wantedSin*10000000000.0)/10000000000.0;
             return wantedSin;
         }
         if (newMode == MonoOperatorModes.tan) {
-            if (num == 0 || num % 180 == 0) {
-                return 0.0;
-            }
-            if (num % 90 == 0 && num % 180 != 0) {
+            double cos = Math.cos(num);
+            cos = Math.round(cos*10000000000.0)/10000000000.0;
+            if(cos==0.0){
                 return NaN;
             }
             double wantedTan;
             wantedTan = Math.tan(num);
-            wantedTan = Math.round(wantedTan*10000000.0)/10000000.0;
+            wantedTan = Math.round(wantedTan*10000000000.0)/10000000000.0;
             return wantedTan;
         }
         if (newMode == MonoOperatorModes.log) {
@@ -151,6 +150,24 @@ public class Calculator {
         }
         if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
+        }
+        if(newMode == MonoOperatorModes.xfact){
+            if(num % 1==0 && num>=0 && num<=20){ //check if num is integer and 0<=num<=20. For numbers>= 20! long int is not enough to calculate
+                if(num==1 || num==0){
+                    return 1.0;
+                }
+                long result =1;
+                for(int i=2;i<=num;i++){
+                    result = result*i;
+                }
+                double doubleResult = result*1.0;
+                return doubleResult;
+            }
+            else{
+                return  NaN;
+            }
+
+
         }
 
         // never reach

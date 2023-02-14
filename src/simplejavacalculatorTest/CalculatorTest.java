@@ -99,6 +99,21 @@ class CalculatorTest {
 		Calculator calculator = new Calculator();
 		Assertions.assertEquals(9.0, calculator.calculateMono(Calculator.MonoOperatorModes.square, 3.0));
 	}
+
+	@Test
+	void CalculateMonXFactTest() {
+		Calculator calculator = new Calculator();
+		Assertions.assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.xfact, 0.0));
+		Assertions.assertEquals(1.0, calculator.calculateMono(Calculator.MonoOperatorModes.xfact, 1.0));
+		Assertions.assertEquals(6.0, calculator.calculateMono(Calculator.MonoOperatorModes.xfact, 3.0));
+		Assertions.assertEquals(362880.0, calculator.calculateMono(Calculator.MonoOperatorModes.xfact, 9.0));
+		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.xfact, -5.0));
+		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.xfact, 21.0));
+		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.xfact, 56.0));
+		Assertions.assertEquals(NaN, calculator.calculateMono(Calculator.MonoOperatorModes.xfact, 3.2));
+
+
+	}
 	
 	@Test
 	void CalculateMonoSquareRootTest() {
