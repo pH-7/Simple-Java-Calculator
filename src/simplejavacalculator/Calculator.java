@@ -120,10 +120,16 @@ public class Calculator {
             return 1 / num;
         }
         if (newMode == MonoOperatorModes.cos) {
-            return Math.cos(Math.toRadians(num));
+            double wantedCos;
+            wantedCos = Math.cos(num);
+            wantedCos= Math.round(wantedCos*10000000.0)/10000000.0; //round to 7th decimal place
+            return wantedCos;
         }
         if (newMode == MonoOperatorModes.sin) {
-            return Math.sin(Math.toRadians(num));
+            double wantedSin;
+            wantedSin = Math.sin(num);
+            wantedSin= Math.round(wantedSin*10000000.0)/10000000.0;
+            return wantedSin;
         }
         if (newMode == MonoOperatorModes.tan) {
             if (num == 0 || num % 180 == 0) {
@@ -132,8 +138,10 @@ public class Calculator {
             if (num % 90 == 0 && num % 180 != 0) {
                 return NaN;
             }
-
-            return Math.tan(Math.toRadians(num));
+            double wantedTan;
+            wantedTan = Math.tan(num);
+            wantedTan = Math.round(wantedTan*10000000.0)/10000000.0;
+            return wantedTan;
         }
         if (newMode == MonoOperatorModes.log) {
             return log10(num);

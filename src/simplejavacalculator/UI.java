@@ -51,7 +51,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butdiv, butmod, butlog, butrate, butabs, butBinary;
+      butCos, butSin, butTan, butxpowerofy, butdiv, butmod, butlog, butrate, butabs, butBinary, butPI;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -88,7 +88,8 @@ public class UI implements ActionListener {
       but = new JButton[10];      
       for (int i = 0; i < 10; i++) {
     		 but[i] = new JButton(String.valueOf(i));
-      }      
+      }
+      butPI = new JButton("π");
       butAdd = new JButton("+");      
       butMinus = new JButton("-");      
       butMultiply = new JButton("*");      
@@ -125,7 +126,8 @@ public class UI implements ActionListener {
       
       for (int i = 0; i < 10; i++) {
          but[i].setFont(font);
-      }      
+      }
+      butPI.setFont(font);
       butAdd.setFont(font);
       butMinus.setFont(font);
       butMultiply.setFont(font);
@@ -176,6 +178,7 @@ public class UI implements ActionListener {
       
       panelSub5.add(Box.createHorizontalStrut(92));
       panelSub5.add(but[0]);
+      panelSub5.add(butPI);
       panelSub5.add(Box.createHorizontalStrut(210));
       panel.add(panelSub5);
       
@@ -200,7 +203,8 @@ public class UI implements ActionListener {
       
       for (int i = 0; i < 10; i++) {
          but[i].addActionListener(this);
-      }      
+      }
+      butPI.addActionListener(this);
       butAdd.addActionListener(this);
       butMinus.addActionListener(this);
       butMultiply.addActionListener(this);
@@ -230,7 +234,10 @@ public class UI implements ActionListener {
    public void actionPerformed(ActionEvent e) {
       final Object source = e.getSource();
       Double checkNum = null;
-
+      if(source == butPI){
+         text.replaceSelection("3.14159265358979323846");
+         return;
+      }
       for (int i = 0; i < 10; i++) {
          if (source == but[i]) {
             text.replaceSelection(buttonValue[i]);
