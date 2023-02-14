@@ -51,7 +51,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
+      butCos, butSin, butTan, butxpowerofy, butdiv, butmod, butlog, butrate, butabs, butBinary, butPI, butxfact;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -88,7 +88,8 @@ public class UI implements ActionListener {
       but = new JButton[10];      
       for (int i = 0; i < 10; i++) {
     		 but[i] = new JButton(String.valueOf(i));
-      }      
+      }
+      butPI = new JButton("π");
       butAdd = new JButton("+");      
       butMinus = new JButton("-");      
       butMultiply = new JButton("*");      
@@ -100,7 +101,10 @@ public class UI implements ActionListener {
       butCos = new JButton("Cos");      
       butSin = new JButton("Sin");      
       butTan = new JButton("Tan");      
-      butxpowerofy = new JButton("x^y");      
+      butxpowerofy = new JButton("x^y");
+      butxfact = new JButton("x!");
+      butdiv = new JButton("div");
+      butmod = new JButton("mod");
       butlog = new JButton("log10(x)");      
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
@@ -123,7 +127,8 @@ public class UI implements ActionListener {
       
       for (int i = 0; i < 10; i++) {
          but[i].setFont(font);
-      }      
+      }
+      butPI.setFont(font);
       butAdd.setFont(font);
       butMinus.setFont(font);
       butMultiply.setFont(font);
@@ -136,6 +141,9 @@ public class UI implements ActionListener {
       butSin.setFont(font);
       butTan.setFont(font);
       butxpowerofy.setFont(font);
+      butxfact.setFont(font);
+      butdiv.setFont(font);
+      butmod.setFont(font);
       butlog.setFont(font);
       butrate.setFont(font);
       butabs.setFont(font);
@@ -159,7 +167,7 @@ public class UI implements ActionListener {
       panelSub3.add(but[6]);
       panelSub3.add(Box.createHorizontalStrut(15));
       panelSub3.add(butMultiply);
-      panelSub3.add(butDivide);      
+      panelSub3.add(butDivide);
       panel.add(panelSub3);
       
       panelSub4.add(but[7]);
@@ -172,6 +180,7 @@ public class UI implements ActionListener {
       
       panelSub5.add(Box.createHorizontalStrut(92));
       panelSub5.add(but[0]);
+      panelSub5.add(butPI);
       panelSub5.add(Box.createHorizontalStrut(210));
       panel.add(panelSub5);
       
@@ -179,11 +188,14 @@ public class UI implements ActionListener {
       panelSub6.add(butSquareRoot);
       panelSub6.add(butOneDividedBy);
       panelSub6.add(butxpowerofy);
+      panelSub6.add(butxfact);
       panel.add(panelSub6);
       
       panelSub7.add(butCos);
       panelSub7.add(butSin);
       panelSub7.add(butTan);
+      panelSub7.add(butdiv);
+      panelSub7.add(butmod);
       panel.add(panelSub7);
       
       panelSub8.add(butlog);
@@ -194,11 +206,14 @@ public class UI implements ActionListener {
       
       for (int i = 0; i < 10; i++) {
          but[i].addActionListener(this);
-      }      
+      }
+      butPI.addActionListener(this);
       butAdd.addActionListener(this);
       butMinus.addActionListener(this);
       butMultiply.addActionListener(this);
       butDivide.addActionListener(this);
+      butdiv.addActionListener(this);
+      butmod.addActionListener(this);
       butSquare.addActionListener(this);
       butSquareRoot.addActionListener(this);
       butOneDividedBy.addActionListener(this);
@@ -206,6 +221,7 @@ public class UI implements ActionListener {
       butSin.addActionListener(this);
       butTan.addActionListener(this);
       butxpowerofy.addActionListener(this);
+      butxfact.addActionListener(this);
       butlog.addActionListener(this);
       butrate.addActionListener(this);
       butabs.addActionListener(this);
@@ -222,7 +238,10 @@ public class UI implements ActionListener {
    public void actionPerformed(ActionEvent e) {
       final Object source = e.getSource();
       Double checkNum = null;
-
+      if(source == butPI){
+         text.replaceSelection("3.14159265358979323846");
+         return;
+      }
       for (int i = 0; i < 10; i++) {
          if (source == but[i]) {
             text.replaceSelection(buttonValue[i]);
@@ -256,6 +275,14 @@ public class UI implements ActionListener {
             writer(calc.calculateBi(Calculator.BiOperatorModes.divide, reader()));
             text.replaceSelection(butDivide.getText());
          }
+         if (source == butdiv) {
+            writer(calc.calculateBi(Calculator.BiOperatorModes.div, reader()));
+            text.replaceSelection(butdiv.getText());
+         }
+         if (source == butmod) {
+            writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
+            text.replaceSelection(butmod.getText());
+         }
          
          if (source == butxpowerofy) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));
@@ -263,6 +290,9 @@ public class UI implements ActionListener {
 
          if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));
+         }
+         if (source == butxfact){
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.xfact, reader()));
          }
 
          if (source == butSquareRoot)
