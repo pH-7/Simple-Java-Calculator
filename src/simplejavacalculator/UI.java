@@ -49,14 +49,16 @@ public class UI implements ActionListener {
    private final JPanel panelSub8;
    
    private final JTextArea text;
+   
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
       "7", "8", "9"};
    
+
    private final Font font;
    private final Font textFont;
    private ImageIcon image;
@@ -100,6 +102,7 @@ public class UI implements ActionListener {
       butCos = new JButton("Cos");      
       butSin = new JButton("Sin");      
       butTan = new JButton("Tan");      
+      butln = new JButton("ln");     
       butxpowerofy = new JButton("x^y");      
       butlog = new JButton("log10(x)");      
       butrate = new JButton("x%");      
@@ -135,6 +138,7 @@ public class UI implements ActionListener {
       butCos.setFont(font);
       butSin.setFont(font);
       butTan.setFont(font);
+      butln.setFont(font); 
       butxpowerofy.setFont(font);
       butlog.setFont(font);
       butrate.setFont(font);
@@ -172,6 +176,7 @@ public class UI implements ActionListener {
       
       panelSub5.add(Box.createHorizontalStrut(92));
       panelSub5.add(but[0]);
+      panelSub5.add(butln); 
       panelSub5.add(Box.createHorizontalStrut(210));
       panel.add(panelSub5);
       
@@ -205,6 +210,7 @@ public class UI implements ActionListener {
       butCos.addActionListener(this);
       butSin.addActionListener(this);
       butTan.addActionListener(this);
+      butln.addActionListener(this); 
       butxpowerofy.addActionListener(this);
       butlog.addActionListener(this);
       butrate.addActionListener(this);
@@ -217,7 +223,7 @@ public class UI implements ActionListener {
       frame.add(panel);
       frame.setVisible(true);
    }
-   
+
    @Override
    public void actionPerformed(ActionEvent e) {
       final Object source = e.getSource();
@@ -230,6 +236,7 @@ public class UI implements ActionListener {
          }
       }
 
+    
       try {
          checkNum = Double.parseDouble(text.getText());
       } catch(NumberFormatException k) {
@@ -282,6 +289,9 @@ public class UI implements ActionListener {
 
          if (source == butlog)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.log, reader()));
+
+         if (source == butln)
+            writer(calc.calculateMono(Calculator.MonoOperatorModes.ln, reader())); 
 
          if (source == butrate)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.rate, reader()));

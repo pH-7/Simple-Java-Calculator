@@ -23,7 +23,7 @@ public class Calculator {
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan ,log , rate, abs
+        square, squareRoot, oneDividedBy, cos, sin, tan, log, rate, abs, ln,
     }
 
     private Double num1, num2;
@@ -83,6 +83,7 @@ public class Calculator {
         return NaN;
     }
 
+    
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
         if (newMode == MonoOperatorModes.square) {
             return num * num;
@@ -111,6 +112,9 @@ public class Calculator {
         }
         if (newMode == MonoOperatorModes.log) {
             return log10(num);
+        }
+        if (newMode == MonoOperatorModes.ln) {
+            return log(num);
         }
         if (newMode == MonoOperatorModes.rate) {
            return num / 100;
