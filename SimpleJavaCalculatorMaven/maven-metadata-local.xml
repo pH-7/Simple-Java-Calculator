@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>SimpleJavaCalculator</groupId>
+  <artifactId>SimpleJavaCalculatorMaven</artifactId>
+  <versioning>
+    <versions>
+      <version>0.0.1-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20230318102747</lastUpdated>
+  </versioning>
+</metadata>
