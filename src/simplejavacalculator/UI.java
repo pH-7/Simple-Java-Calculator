@@ -172,19 +172,10 @@ public class UI implements ActionListener {
       panelSub4.add(butCancel);
       panel.add(panelSub4);
 
-      //panelSub5.add(Box.createHorizontalStrut(75));
       panelSub5.add(but[0]);
       panelSub5.add(Box.createHorizontalStrut(95));
       panelSub5.add(butln);
       panel.add(panelSub5);
-
-
-
-      /*panelSub9.add(butln);
-      panelSub9.add(Box.createHorizontalStrut(200));
-      panel.add(panelSub9);*/
-
-
 
 
       panelSub6.add(butSquare);
