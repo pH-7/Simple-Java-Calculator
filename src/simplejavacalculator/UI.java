@@ -46,9 +46,6 @@ public class UI implements ActionListener {
    private final JPanel panelSub7;
    private final JPanel panelSub8;
 
-   private final JPanel panelSub9;
-
-
    private final JTextArea text;
 
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
@@ -81,9 +78,6 @@ public class UI implements ActionListener {
       panelSub6 = new JPanel(new FlowLayout());
       panelSub7 = new JPanel(new FlowLayout());
       panelSub8 = new JPanel(new FlowLayout());
-      panelSub9 = new JPanel();
-
-
 
       font = new Font("Consolas",Font.PLAIN, 18);
 
