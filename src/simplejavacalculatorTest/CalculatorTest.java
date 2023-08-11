@@ -8,7 +8,7 @@ import java.lang.Math;
 
 import simplejavacalculator.Calculator;
 
-class CalculatorTest {
+class CalculatorTest{
 	
 	@Test
 	void calculateBiNormalTest() {
