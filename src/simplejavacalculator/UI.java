@@ -33,8 +33,6 @@ import javax.swing.BoxLayout;
 import java.awt.Image;
 import javax.swing.ImageIcon; 
 import java.io.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class UI implements ActionListener {
    
@@ -66,7 +64,7 @@ public class UI implements ActionListener {
    private ImageIcon image;
    private BufferedImageCustom imageReturn;
    
-   public UI()implements ActionListener, KeyListener throws IOException  {
+   public UI() throws IOException {
       frame = new JFrame("Calculator PH");
       
       imageReturn = new BufferedImageCustom();
