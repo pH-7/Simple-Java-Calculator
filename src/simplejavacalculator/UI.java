@@ -51,7 +51,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
-      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,butFactorial,
+      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
       butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln;
    private final Calculator calc;
    
@@ -96,8 +96,7 @@ public class UI implements ActionListener {
       butMultiply = new JButton("*");      
       butDivide = new JButton("/");      
       butEqual = new JButton("=");      
-      butSquareRoot = new JButton("sqrt");  
-      butFactorial = new JButton("!");      
+      butSquareRoot = new JButton("sqrt");      
       butSquare = new JButton("x*x");      
       butOneDividedBy = new JButton("1/x");      
       butCos = new JButton("Cos");      
@@ -135,7 +134,6 @@ public class UI implements ActionListener {
       butEqual.setFont(font);
       butSquareRoot.setFont(font);
       butSquare.setFont(font);
-      butFactorial.setFont(font);
       butOneDividedBy.setFont(font);
       butCos.setFont(font);
       butSin.setFont(font);
@@ -183,7 +181,6 @@ public class UI implements ActionListener {
       panel.add(panelSub5);
       
       panelSub6.add(butSquare);
-      panelSub6.add(butFactorial);
       panelSub6.add(butSquareRoot);
       panelSub6.add(butOneDividedBy);
       panelSub6.add(butxpowerofy);
@@ -207,7 +204,6 @@ public class UI implements ActionListener {
       butMinus.addActionListener(this);
       butMultiply.addActionListener(this);
       butDivide.addActionListener(this);
-      butFactorial.addActionListener(this);
       butSquare.addActionListener(this);
       butSquareRoot.addActionListener(this);
       butOneDividedBy.addActionListener(this);
@@ -272,10 +268,6 @@ public class UI implements ActionListener {
             writer(calc.calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));
          }
 
-         if (source == butFactorial) {
-             writer(calc.calculateMono(Calculator.MonoOperatorModes.factorial, reader()));
-          }
-         
          if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));
          }
