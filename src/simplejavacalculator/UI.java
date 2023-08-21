@@ -33,7 +33,6 @@ import javax.swing.BoxLayout;
 import java.awt.Image;
 import javax.swing.ImageIcon; 
 import java.io.*;
-import simplejavacalculator.BufferedImageCustom;
 
 public class UI implements ActionListener {
    
