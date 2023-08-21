@@ -1,0 +1,9 @@
+/nbproject/private/
+/build/
+/dist/
+*.class
+
+# Mac OS System
+.DS_Store*
+._*
+/bin/
