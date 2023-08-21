@@ -103,13 +103,15 @@ class CalculatorTest{
         Assertions.assertEquals(Math.tan(Math.toRadians(45.0)), result);
     }
 
+    //0.0
     @Test
     void calculateMonoTanZeroTest() {
         Calculator calculator = new Calculator();
         double result = calculator.calculateMono(Calculator.MonoOperatorModes.tan, 0.0);
         Assertions.assertEquals(0.0, result);
     }
-
+    
+    //undefined
     @Test
     void calculateMonoTanNaNTest() {
         Calculator calculator = new Calculator();
