@@ -143,5 +143,6 @@ class CalculatorTest{
         double result = calculator.calculateMono(Calculator.MonoOperatorModes.factorial, 5.0);
         Assertions.assertEquals(120.0, result);
     }
+	
 
 }
