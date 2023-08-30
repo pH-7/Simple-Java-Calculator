@@ -10,14 +10,13 @@ import simplejavacalculator.Calculator;
 
 class CalculatorTest{
 	
-	
 	@Test
-    void calculateBiModTest() {
-        Calculator calculator = new Calculator();
-        calculator.calculateBi(Calculator.BiOperatorModes.mod, 7.0);
-        Assertions.assertEquals(3.0, calculator.calculateBi(Calculator.BiOperatorModes.mod, 4.0));
-    }
-	
+	    void calculateBiModTest() {
+	        Calculator calculator = new Calculator();
+	        calculator.calculateBi(Calculator.BiOperatorModes.mod, 7.0);
+	        Assertions.assertEquals(3.0, calculator.calculateBi(Calculator.BiOperatorModes.mod, 4.0));
+	    }
+
 	@Test
 	void calculateBiNormalTest() {
 		Calculator calculator = new Calculator();
@@ -52,7 +51,7 @@ class CalculatorTest{
 		calculator.calculateBi(Calculator.BiOperatorModes.divide, 6.4);
 		Assertions.assertEquals(3.2, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));
 	}
-	
+
 	@Test
 	void calculateEqualTest() {
 		Calculator calculator = new Calculator();
@@ -151,5 +150,6 @@ class CalculatorTest{
         double result = calculator.calculateMono(Calculator.MonoOperatorModes.factorial, 5.0);
         Assertions.assertEquals(120.0, result);
     }
+	
 
 }
