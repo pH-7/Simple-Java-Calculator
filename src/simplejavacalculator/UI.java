@@ -313,9 +313,10 @@ public class UI implements ActionListener {
          if (source == butabs)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
 
-         if (source == butMod)  // Handle the mod button
-             writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
-
+            if (source == butMod) { // Handle the mod button function
+               writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
+           text.replaceSelection(butMod.getText());
+           }
          
          if (source == butEqual)
             writer(calc.calculateEqual(reader()));
