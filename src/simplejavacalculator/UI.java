@@ -33,7 +33,7 @@ public class UI implements ActionListener {
    private final JTextArea text;
    
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
-   butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
+   butEqual, butCancel, butSquareRoot, butFactorial, butSquare, butOneDividedBy,
       butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln, butMod;  // Add butMod button
 
    private final Calculator calc;
@@ -294,9 +294,10 @@ public class UI implements ActionListener {
          if (source == butabs)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
          
-         if (source == butMod)  // Handle the mod button
-            writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
-
+         if (source == butMod) {
+        	 writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
+        	 text.replaceSelection(butMod.getText());
+         }  // Handle the mod button
          if (source == butEqual)
             writer(calc.calculateEqual(reader()));
 

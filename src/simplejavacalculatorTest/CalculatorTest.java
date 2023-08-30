@@ -51,7 +51,7 @@ class CalculatorTest{
 		calculator.calculateBi(Calculator.BiOperatorModes.divide, 6.4);
 		Assertions.assertEquals(3.2, calculator.calculateBi(Calculator.BiOperatorModes.normal, 2.0));
 	}
-	
+
 	@Test
 	void calculateEqualTest() {
 		Calculator calculator = new Calculator();
