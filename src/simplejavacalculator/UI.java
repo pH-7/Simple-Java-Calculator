@@ -51,8 +51,8 @@ public class UI implements ActionListener {
    private final JTextArea text;
    
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
-      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln;
+      butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,butFactorial,
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln, butMod;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -96,7 +96,8 @@ public class UI implements ActionListener {
       butMultiply = new JButton("*");      
       butDivide = new JButton("/");      
       butEqual = new JButton("=");      
-      butSquareRoot = new JButton("sqrt");      
+      butSquareRoot = new JButton("sqrt");  
+      butFactorial = new JButton("!");      
       butSquare = new JButton("x*x");      
       butOneDividedBy = new JButton("1/x");      
       butCos = new JButton("Cos");      
@@ -109,7 +110,8 @@ public class UI implements ActionListener {
       butabs = new JButton("abs(x)");      
       butCancel = new JButton("C");      
       butBinary = new JButton("Bin");      
-      
+      butMod = new JButton("%");  // Add the mod button
+
       calc = new Calculator();
       
    }
@@ -134,6 +136,7 @@ public class UI implements ActionListener {
       butEqual.setFont(font);
       butSquareRoot.setFont(font);
       butSquare.setFont(font);
+      butFactorial.setFont(font);
       butOneDividedBy.setFont(font);
       butCos.setFont(font);
       butSin.setFont(font);
@@ -145,7 +148,8 @@ public class UI implements ActionListener {
       butabs.setFont(font);
       butCancel.setFont(font);
       butBinary.setFont(font); 
-      
+      butMod.setFont(font);  // Set font for the mod button
+
       panel.add(Box.createHorizontalStrut(100));
       panelSub1.add(text);
       panel.add(panelSub1);
@@ -163,7 +167,9 @@ public class UI implements ActionListener {
       panelSub3.add(but[6]);
       panelSub3.add(Box.createHorizontalStrut(15));
       panelSub3.add(butMultiply);
-      panelSub3.add(butDivide);      
+      panelSub3.add(butDivide);  
+      panelSub3.add(butMod);  // Add the mod button here
+
       panel.add(panelSub3);
       
       panelSub4.add(but[7]);
@@ -181,6 +187,7 @@ public class UI implements ActionListener {
       panel.add(panelSub5);
       
       panelSub6.add(butSquare);
+      panelSub6.add(butFactorial);
       panelSub6.add(butSquareRoot);
       panelSub6.add(butOneDividedBy);
       panelSub6.add(butxpowerofy);
@@ -204,6 +211,7 @@ public class UI implements ActionListener {
       butMinus.addActionListener(this);
       butMultiply.addActionListener(this);
       butDivide.addActionListener(this);
+      butFactorial.addActionListener(this);
       butSquare.addActionListener(this);
       butSquareRoot.addActionListener(this);
       butOneDividedBy.addActionListener(this);
@@ -215,6 +223,8 @@ public class UI implements ActionListener {
       butlog.addActionListener(this);
       butrate.addActionListener(this);
       butabs.addActionListener(this);
+      butMod.addActionListener(this);  // Add action listener for the mod button
+
       butBinary.addActionListener(this);
       
       butEqual.addActionListener(this);
@@ -268,6 +278,10 @@ public class UI implements ActionListener {
             writer(calc.calculateBi(Calculator.BiOperatorModes.xpowerofy, reader()));
          }
 
+         if (source == butFactorial) {
+             writer(calc.calculateMono(Calculator.MonoOperatorModes.factorial, reader()));
+          }
+         
          if (source == butSquare) {
             writer(calc.calculateMono(Calculator.MonoOperatorModes.square, reader()));
          }
@@ -299,6 +313,11 @@ public class UI implements ActionListener {
          if (source == butabs)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
 
+            if (source == butMod) { // Handle the mod button function
+               writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
+           text.replaceSelection(butMod.getText());
+           }
+         
          if (source == butEqual)
             writer(calc.calculateEqual(reader()));
 
