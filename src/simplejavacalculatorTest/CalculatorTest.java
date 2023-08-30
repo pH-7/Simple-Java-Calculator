@@ -10,13 +10,13 @@ import simplejavacalculator.Calculator;
 
 class CalculatorTest{
 	
-	  @Test
+	@Test
 	    void calculateBiModTest() {
 	        Calculator calculator = new Calculator();
 	        calculator.calculateBi(Calculator.BiOperatorModes.mod, 7.0);
 	        Assertions.assertEquals(3.0, calculator.calculateBi(Calculator.BiOperatorModes.mod, 4.0));
 	    }
-	 
+
 	@Test
 	void calculateBiNormalTest() {
 		Calculator calculator = new Calculator();
