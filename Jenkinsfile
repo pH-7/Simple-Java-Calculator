@@ -4,7 +4,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t siowyenchong/Simple-Java-Calculator .'
+                    sh 'docker build -t siowyenchong/simple-java-calculator .'
                 }
             }
         }
@@ -14,7 +14,7 @@ pipeline {
 	                withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
 					    sh 'docker login -u siowyenchong -p ${dockerhubpwd}'
 					}
-                   sh 'docker push siowyenchong/Simple-Java-Calculator'
+                   sh 'docker push siowyenchong/simple-java-calculator'
                 }
             }
         }
