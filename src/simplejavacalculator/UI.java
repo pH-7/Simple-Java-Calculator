@@ -33,14 +33,9 @@ public class UI implements ActionListener {
    private final JTextArea text;
    
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
-<<<<<<< HEAD
-   butEqual, butCancel, butSquareRoot, butFactorial, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln, butMod;  // Add butMod button
-
-=======
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,butFactorial,
       butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln, butMod;
->>>>>>> master
+
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -97,15 +92,8 @@ public class UI implements ActionListener {
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
       butCancel = new JButton("C");      
-<<<<<<< HEAD
-      butBinary = new JButton("Bin");
-      butMod = new JButton("%");  // Add the mod button
-      
-=======
       butBinary = new JButton("Bin");      
       butMod = new JButton("%");  // Add the mod button
-
->>>>>>> master
       calc = new Calculator();
       
    }
@@ -143,11 +131,6 @@ public class UI implements ActionListener {
       butCancel.setFont(font);
       butBinary.setFont(font); 
       butMod.setFont(font);  // Set font for the mod button
-<<<<<<< HEAD
-      
-=======
-
->>>>>>> master
       panel.add(Box.createHorizontalStrut(100));
       panelSub1.add(text);
       panel.add(panelSub1);
@@ -165,14 +148,9 @@ public class UI implements ActionListener {
       panelSub3.add(but[6]);
       panelSub3.add(Box.createHorizontalStrut(15));
       panelSub3.add(butMultiply);
-<<<<<<< HEAD
-      panelSub3.add(butDivide);
-      panelSub3.add(butMod);  // Add the mod button here
-=======
       panelSub3.add(butDivide);  
       panelSub3.add(butMod);  // Add the mod button here
 
->>>>>>> master
       panel.add(panelSub3);
       
       panelSub4.add(but[7]);
@@ -227,10 +205,7 @@ public class UI implements ActionListener {
       butrate.addActionListener(this);
       butabs.addActionListener(this);
       butMod.addActionListener(this);  // Add action listener for the mod button
-<<<<<<< HEAD
-=======
 
->>>>>>> master
       butBinary.addActionListener(this);
       
       butEqual.addActionListener(this);
@@ -318,20 +293,12 @@ public class UI implements ActionListener {
 
          if (source == butabs)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
-<<<<<<< HEAD
-         
-         if (source == butMod) {
-        	 writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
-        	 text.replaceSelection(butMod.getText());
-         }  // Handle the mod button
-=======
 
             if (source == butMod) { // Handle the mod button function
                writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
            text.replaceSelection(butMod.getText());
            }
          
->>>>>>> master
          if (source == butEqual)
             writer(calc.calculateEqual(reader()));
 

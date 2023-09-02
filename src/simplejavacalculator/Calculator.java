@@ -44,10 +44,7 @@ public class Calculator {
         if (mode == BiOperatorModes.mod) {
             return num1 % num2;
         }
-<<<<<<< HEAD
 
-=======
->>>>>>> master
         // never reach
         throw new Error();
     }
