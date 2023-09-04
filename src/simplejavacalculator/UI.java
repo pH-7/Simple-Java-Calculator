@@ -80,7 +80,7 @@ public class UI implements ActionListener {
       butDivide = new JButton("/");      
       butEqual = new JButton("=");      
       butSquareRoot = new JButton("sqrt");  
-      butFactorial = new JButton("Factorial!");
+      butFactorial = new JButton("factorial!");
       butSquare = new JButton("x*x");      
       butOneDividedBy = new JButton("1/x");      
       butCos = new JButton("Cos");      
