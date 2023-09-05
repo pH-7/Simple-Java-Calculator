@@ -30,7 +30,6 @@ import java.awt.Font;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 
-import java.awt.Image;
 import javax.swing.ImageIcon; 
 import java.io.*;
 
@@ -47,12 +46,13 @@ public class UI implements ActionListener {
    private final JPanel panelSub6;
    private final JPanel panelSub7;
    private final JPanel panelSub8;
+   private final JPanel panelSub9;
    
    private final JTextArea text;
    
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln ,butHistory ;
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -80,6 +80,7 @@ public class UI implements ActionListener {
       panelSub6 = new JPanel(new FlowLayout());
       panelSub7 = new JPanel(new FlowLayout());
       panelSub8 = new JPanel(new FlowLayout());
+      panelSub9 = new JPanel(new FlowLayout());
       
       font = new Font("Consolas",Font.PLAIN, 18);
       
@@ -108,8 +109,9 @@ public class UI implements ActionListener {
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
       butCancel = new JButton("C");      
-      butBinary = new JButton("Bin");      
-      
+      butBinary = new JButton("Bin");
+      butHistory = new JButton("History");
+
       calc = new Calculator();
       
    }
@@ -144,8 +146,9 @@ public class UI implements ActionListener {
       butrate.setFont(font);
       butabs.setFont(font);
       butCancel.setFont(font);
-      butBinary.setFont(font); 
-      
+      butBinary.setFont(font);
+      butHistory.setFont(font);
+
       panel.add(Box.createHorizontalStrut(100));
       panelSub1.add(text);
       panel.add(panelSub1);
@@ -196,6 +199,9 @@ public class UI implements ActionListener {
       panelSub8.add(butabs);
       panelSub8.add(butBinary);
       panel.add(panelSub8);
+
+      panelSub9.add(butHistory);
+      panel.add(panelSub9);
       
       for (int i = 0; i < 10; i++) {
          but[i].addActionListener(this);
@@ -219,7 +225,9 @@ public class UI implements ActionListener {
       
       butEqual.addActionListener(this);
       butCancel.addActionListener(this);
-      
+
+      butHistory.addActionListener(this);
+
       frame.add(panel);
       frame.setVisible(true);
    }
@@ -307,6 +315,12 @@ public class UI implements ActionListener {
 
          if (source == butBinary)
             parsetoBinary();
+
+         if(source == butHistory)
+         {
+            History hi = new History(calc);
+            hi.setVisible(true);
+         }
       }
 
       text.selectAll();
