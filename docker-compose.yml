@@ -1,0 +1,23 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins:lts
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - JAVA_OPTS=-Dhudson.plugins.git.GitSCM.ALLOW_LOCAL_CHECKOUT=true
+  agent:
+    image: jenkins/ssh-agent:jdk11
+    container_name: agent
+    expose:
+      - 22
+    environment:
+      - JENKINS_AGENT_SSH_PUBKEY=ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDrI0OwiBlpK4FER5dMi2DwBs00FCdh1eGzvrNL1rIGhGyn+YUwXqCXEdTpCkA8lsjbbtUmDnRkPeCzTJpfOMcU+zBuQTUxS0txG1wotyGKWBEckd9giP4Z09JNKyftPdJEz0+YquN8KX1zS22l0hVZXHFQCSvbjaPu72D60752W9J0PdDSUfX7MdgJ/cDLD2IXguGcXVn/S3tLcdcoukFxsQ7zcaWkg3aF7rtFvuVQANb0B+h9KTxcQorJlDM4p4nkfiQEGxpijAh+p7Zi285kOt9OiJ3ButT4CnM5G6P2mhOxgLZX1InTGA07VTKGiGPp0Mrp2LzNKBDZdex4zNhDHmA3EiKGmKUHvHTcjA30md6VYqo7UB1S2BbCcmpDvcvtnplif8IyLfLq9qJb2vq71ItIho876MP3Kr7O4Ddh0zssuCMMtee2fnFpCtKRE4o2thlb/RM1vOKg0OvAo96Pl77HVuQm9RaTOe+PVk/63WLl5migG4THgbrXV+5HjCk=
+
+volumes:
+  jenkins_home:

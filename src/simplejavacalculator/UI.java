@@ -1,21 +1,3 @@
-/**
- * @name        Simple Java Calculator
- * @package     ph.calculator
- * @file        UI.java
- * @author      SORIA Pierre-Henry
- * @email       pierrehs@hotmail.com
- * @link        http://github.com/pH-7
- * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
- * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
- * @create      2012-03-30
- *
- * @modifiedby  Achintha Gunasekara
- * @modifiedby  Kydon Chantzaridis
- * @modweb      http://www.achinthagunasekara.com
- * @modemail    contact@achinthagunasekara.com
- * @modemail    kchantza@csd.auth.gr
- */
-
 package simplejavacalculator;
 
 import java.awt.FlowLayout;
@@ -52,7 +34,8 @@ public class UI implements ActionListener {
    
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,butFactorial,
-      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln;
+      butCos, butSin, butTan, butxpowerofy, butlog, butrate, butabs, butBinary, butln, butMod;
+
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
@@ -110,7 +93,7 @@ public class UI implements ActionListener {
       butabs = new JButton("abs(x)");      
       butCancel = new JButton("C");      
       butBinary = new JButton("Bin");      
-      
+      butMod = new JButton("%");  // Add the mod button
       calc = new Calculator();
       
    }
@@ -147,7 +130,7 @@ public class UI implements ActionListener {
       butabs.setFont(font);
       butCancel.setFont(font);
       butBinary.setFont(font); 
-      
+      butMod.setFont(font);  // Set font for the mod button
       panel.add(Box.createHorizontalStrut(100));
       panelSub1.add(text);
       panel.add(panelSub1);
@@ -165,7 +148,9 @@ public class UI implements ActionListener {
       panelSub3.add(but[6]);
       panelSub3.add(Box.createHorizontalStrut(15));
       panelSub3.add(butMultiply);
-      panelSub3.add(butDivide);      
+      panelSub3.add(butDivide);  
+      panelSub3.add(butMod);  // Add the mod button here
+
       panel.add(panelSub3);
       
       panelSub4.add(but[7]);
@@ -219,6 +204,8 @@ public class UI implements ActionListener {
       butlog.addActionListener(this);
       butrate.addActionListener(this);
       butabs.addActionListener(this);
+      butMod.addActionListener(this);  // Add action listener for the mod button
+
       butBinary.addActionListener(this);
       
       butEqual.addActionListener(this);
@@ -307,6 +294,11 @@ public class UI implements ActionListener {
          if (source == butabs)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
 
+            if (source == butMod) { // Handle the mod button function
+               writer(calc.calculateBi(Calculator.BiOperatorModes.mod, reader()));
+           text.replaceSelection(butMod.getText());
+           }
+         
          if (source == butEqual)
             writer(calc.calculateEqual(reader()));
 
