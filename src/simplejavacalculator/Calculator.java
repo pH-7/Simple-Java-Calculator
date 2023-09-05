@@ -1,14 +1,3 @@
-/**
- * @name        Simple Java Calculator
- * @package     ph.calculator
- * @file        Main.java
- * @author      SORIA Pierre-Henry
- * @email       pierrehs@hotmail.com
- * @link        http://github.com/pH-7
- * @copyright   Copyright Pierre-Henry SORIA, All Rights Reserved.
- * @license     Apache (http://www.apache.org/licenses/LICENSE-2.0)
- */
-
 package simplejavacalculator;
 
 import static java.lang.Double.NaN;
@@ -19,11 +8,11 @@ import static java.lang.Math.pow;
 public class Calculator {
 
     public enum BiOperatorModes {
-        normal, add, minus, multiply, divide , xpowerofy 
+        normal, add, minus, multiply, divide , xpowerofy, mod
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan, log, rate, abs, ln,
+        square,factorial, squareRoot, oneDividedBy, cos, sin, tan, log, rate, abs, ln,
     }
 
     private Double num1, num2;
@@ -51,6 +40,9 @@ public class Calculator {
         }
         if (mode == BiOperatorModes.xpowerofy) {
             return pow(num1,num2);
+        }
+        if (mode == BiOperatorModes.mod) {
+            return num1 % num2;
         }
 
         // never reach
@@ -85,6 +77,13 @@ public class Calculator {
 
     
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
+    	if (newMode == MonoOperatorModes.factorial) {
+    		double facResult = 1;
+    		for(int i=1;i<=num;i++){    
+    			facResult=facResult*i;    
+    		  }    
+            return facResult;
+        }
         if (newMode == MonoOperatorModes.square) {
             return num * num;
         }
