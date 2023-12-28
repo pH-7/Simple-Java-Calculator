@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component inheritJdk="true">
+	<contentEntry url="file://$MODULE_DIR$">
+		<testFolder url="file://$MODULE_DIR$/tests"/>
+		<testFolder url="file://$MODULE_DIR$/test1"/>
+	</contentEntry>
+</component>
