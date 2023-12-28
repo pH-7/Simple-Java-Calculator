@@ -12,18 +12,16 @@
 package simplejavacalculator;
 
 import static java.lang.Double.NaN;
-import static java.lang.Math.log;
-import static java.lang.Math.log10;
-import static java.lang.Math.pow;
+import static java.lang.Math.*;
 
 public class Calculator {
 
     public enum BiOperatorModes {
-        normal, add, minus, multiply, divide , xpowerofy 
+        normal, add, minus, multiply, divide , xpowerofy , mod
     }
 
     public enum MonoOperatorModes {
-        square, squareRoot, oneDividedBy, cos, sin, tan, log, rate, abs, ln,
+        square, squareRoot, oneDividedBy, cos, sin, tan, log, rate, abs, ln, fact, exp
     }
 
     private Double num1, num2;
@@ -52,6 +50,13 @@ public class Calculator {
         if (mode == BiOperatorModes.xpowerofy) {
             return pow(num1,num2);
         }
+        if (mode==BiOperatorModes.mod){
+            if(floor(num1) == num1 && floor(num2)==num2) {
+                return num1%num2;
+            } else {
+                return NaN;
+            }
+        }
 
         // never reach
         throw new Error();
@@ -75,6 +80,20 @@ public class Calculator {
         return calculateBi(BiOperatorModes.normal, num);
     }
 
+    public Double calculateFact(Double num){
+        int i;
+        double fact=1;
+        if (num==1){
+            return 1.0;
+        }
+        else{
+            for (i=1; i<=floor(num); i++){
+                fact=fact*i;
+            }
+            return fact;
+        }
+    }
+
     public Double reset() {
         num2 = 0.0;
         num1 = 0.0;
@@ -83,7 +102,7 @@ public class Calculator {
         return NaN;
     }
 
-    
+
     public Double calculateMono(MonoOperatorModes newMode, Double num) {
         if (newMode == MonoOperatorModes.square) {
             return num * num;
@@ -117,10 +136,23 @@ public class Calculator {
             return log(num);
         }
         if (newMode == MonoOperatorModes.rate) {
-           return num / 100;
+            return num / 100;
         }
         if (newMode == MonoOperatorModes.abs){
             return Math.abs(num);
+        }
+
+        if (newMode == MonoOperatorModes.fact) {
+            if (num==floor(num) && num>0) {
+                return calculateFact(num);
+            }
+            else {
+                return NaN;
+            }
+        }
+
+        if (newMode == MonoOperatorModes.exp){
+            return Math.exp(num);
         }
 
         // never reach
