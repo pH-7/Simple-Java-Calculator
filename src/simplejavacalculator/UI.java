@@ -83,7 +83,7 @@ public class UI implements ActionListener {
       
       font = new Font("Consolas",Font.PLAIN, 18);
       
-      text = new JTextArea(1, 30);
+      text = new JTextArea(1, 15);
       
       textFont = new Font("Consolas",Font.BOLD, 24);
       
@@ -95,15 +95,15 @@ public class UI implements ActionListener {
       butMinus = new JButton("-");      
       butMultiply = new JButton("*");      
       butDivide = new JButton("/");      
-      butEqual = new JButton("=");      
-      butSquareRoot = new JButton("sqrt");      
-      butSquare = new JButton("x*x");      
-      butOneDividedBy = new JButton("1/x");      
+      butEqual = new JButton("=");
+      butSquareRoot = new JButton("\u221Ax");
+      butSquare = new JButton("x\u00B2");
+      butOneDividedBy = new JButton("1/x");
       butCos = new JButton("Cos");      
       butSin = new JButton("Sin");      
       butTan = new JButton("Tan");      
-      butln = new JButton("ln");     
-      butxpowerofy = new JButton("x^y");      
+      butln = new JButton("ln");
+      butxpowerofy = new JButton("x^y");
       butlog = new JButton("log10(x)");      
       butrate = new JButton("x%");      
       butabs = new JButton("abs(x)");      
