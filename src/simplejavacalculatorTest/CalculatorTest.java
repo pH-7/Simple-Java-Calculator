@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static java.lang.Double.NaN;
 
 
-import java.lang.Math;
+
 
 
 import simplejavacalculator.Calculator;
