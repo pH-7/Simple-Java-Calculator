@@ -312,6 +312,10 @@ public class UI implements ActionListener {
             parsetoBinary();
 
       }
+      /*
+      *We want the contrast button to be outside the IF condition,otherwise it will only work
+      * when the field is NOT empty.
+      */
       if(source == butContrast)
          contrastButton();
 
