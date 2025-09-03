@@ -56,7 +56,7 @@ public class UI implements ActionListener {
    private final Calculator calc;
    
    private final String[] buttonValue = {"0", "1", "2", "3", "4", "5", "6",
-      "7", "8", "9"};
+      "7", "8", "9", "."};
    
 
    private final Font font;
@@ -87,9 +87,9 @@ public class UI implements ActionListener {
       
       textFont = new Font("Consolas",Font.BOLD, 24);
       
-      but = new JButton[10];      
-      for (int i = 0; i < 10; i++) {
-    		 but[i] = new JButton(String.valueOf(i));
+      but = new JButton[11];     
+      for (int i = 0; i < 11; i++) {
+    	  but[i] = new JButton(String.valueOf( buttonValue[i] ));
       }      
       butAdd = new JButton("+");      
       butMinus = new JButton("-");      
@@ -124,7 +124,7 @@ public class UI implements ActionListener {
       text.setFont(textFont);
       text.setEditable(false);
       
-      for (int i = 0; i < 10; i++) {
+      for (int i = 0; i < 11; i++) {
          but[i].setFont(font);
       }      
       butAdd.setFont(font);
@@ -173,10 +173,10 @@ public class UI implements ActionListener {
       panelSub4.add(butEqual);
       panelSub4.add(butCancel);
       panel.add(panelSub4);
-      
-      panelSub5.add(Box.createHorizontalStrut(92));
+
+      panelSub5.add(Box.createHorizontalStrut(44));
+      panelSub5.add(but[10]);
       panelSub5.add(but[0]);
-      panelSub5.add(butln); 
       panelSub5.add(Box.createHorizontalStrut(210));
       panel.add(panelSub5);
       
@@ -189,6 +189,7 @@ public class UI implements ActionListener {
       panelSub7.add(butCos);
       panelSub7.add(butSin);
       panelSub7.add(butTan);
+      panelSub7.add(butln); 
       panel.add(panelSub7);
       
       panelSub8.add(butlog);
@@ -197,7 +198,7 @@ public class UI implements ActionListener {
       panelSub8.add(butBinary);
       panel.add(panelSub8);
       
-      for (int i = 0; i < 10; i++) {
+      for (int i = 0; i < 11; i++) {
          but[i].addActionListener(this);
       }      
       butAdd.addActionListener(this);
@@ -229,7 +230,7 @@ public class UI implements ActionListener {
       final Object source = e.getSource();
       Double checkNum = null;
 
-      for (int i = 0; i < 10; i++) {
+      for (int i = 0; i < 11; i++) {
          if (source == but[i]) {
             text.replaceSelection(buttonValue[i]);
             return;
