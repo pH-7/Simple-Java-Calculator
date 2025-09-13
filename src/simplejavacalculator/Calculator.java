@@ -60,7 +60,7 @@ public class Calculator {
     public Double calculateBi(BiOperatorModes newMode, Double num) {
         if (mode.equals(BiOperatorModes.normal)) {
             num2 = 0.0;
-            num1 = num;
+            number1 = num;
             mode = newMode;
             return NaN;
         } else {
