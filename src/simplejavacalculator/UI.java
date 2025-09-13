@@ -25,7 +25,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import java.awt.Font;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -48,7 +48,7 @@ public class UI implements ActionListener {
    private final JPanel panelSub7;
    private final JPanel panelSub8;
    
-   private final JTextArea text;
+   private final JTextField text;
    
    private final JButton but[], butAdd, butMinus, butMultiply, butDivide,
       butEqual, butCancel, butSquareRoot, butSquare, butOneDividedBy,
@@ -83,7 +83,10 @@ public class UI implements ActionListener {
       
       font = new Font("Consolas",Font.PLAIN, 18);
       
-      text = new JTextArea(1, 30);
+      text = new JTextField(30);
+      text.setBackground(java.awt.Color.WHITE);
+      text.setForeground(java.awt.Color.BLACK);
+      text.setCaretColor(java.awt.Color.BLACK);
       
       textFont = new Font("Consolas",Font.BOLD, 24);
       
@@ -231,7 +234,8 @@ public class UI implements ActionListener {
 
       for (int i = 0; i < 10; i++) {
          if (source == but[i]) {
-            text.replaceSelection(buttonValue[i]);
+            String currentText = text.getText();
+            text.setText(currentText + buttonValue[i]);
             return;
          }
       }
@@ -246,22 +250,22 @@ public class UI implements ActionListener {
       if (checkNum != null || source == butCancel) {
          if (source == butAdd) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.add, reader()));
-            text.replaceSelection(butAdd.getText());
+            text.setText(text.getText() + butAdd.getText());
          }
 
          if (source == butMinus) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.minus, reader()));
-            text.replaceSelection(butMinus.getText());
+            text.setText(text.getText() + butMinus.getText());
          }
 
          if (source == butMultiply) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.multiply, reader()));
-            text.replaceSelection(butMultiply.getText());
+            text.setText(text.getText() + butMultiply.getText());
          }
 
          if (source == butDivide) {
             writer(calc.calculateBi(Calculator.BiOperatorModes.divide, reader()));
-            text.replaceSelection(butDivide.getText());
+            text.setText(text.getText() + butDivide.getText());
          }
          
          if (source == butxpowerofy) {
@@ -309,7 +313,8 @@ public class UI implements ActionListener {
             parsetoBinary();
       }
 
-      text.selectAll();
+      // Don't select all text after each action
+      text.setCaretPosition(text.getText().length());
    }
    
    private void parsetoBinary() {
@@ -334,6 +339,7 @@ public class UI implements ActionListener {
          text.setText("");
       } else {
          text.setText(Double.toString(num));
+         text.repaint(); // Force a repaint of the text area
       }
    }
 }
