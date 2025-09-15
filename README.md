@@ -6,7 +6,7 @@
 
 ---
 
-This calculator is **simple** with an **easy to use code** to help novices **learn how to create a calculator** program with **`Java`**.
+Thiss calculator is **simple** with an **easy to use code** to help novices **learn how to create a calculator** program with **`Java`**.
 
 ---
 
