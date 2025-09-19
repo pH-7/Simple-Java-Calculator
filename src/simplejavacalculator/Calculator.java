@@ -35,7 +35,7 @@ public class Calculator {
         }
         if (mode.equals(BiOperatorModes.add)) {
             if (num2 != 0) {
-                return num1 + num2;
+                return num1 - num2;
             }
 
             return num1;
