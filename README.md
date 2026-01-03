@@ -14,7 +14,7 @@ This calculator is **simple** with an **easy to use code** to help novices **lea
 
 This project was **originally written using `Eclipse`**, but I have **migrated it to NetBeans**.
 
-If you use the executable "SimpleJavaCalculator.jar" file and that doesn't work, you can type this in your terminal:
+If you use the executable ```SimpleJavaCalculator.jar``` file and that doesn't work, you can type this in your terminal:
 
 ```shell
 java -jar /your_calculator_directory/SimpleJavaCalculator.jar`
@@ -45,9 +45,9 @@ java -jar /your_calculator_directory/SimpleJavaCalculator.jar`
 
 ## 📮 Contact
 
-Pierre-Henry Soria: pierrehs [AT] hotmail [D0T] com
+Pierre-Henry Soria: pierrehs@ hotmail.com
 
-Achintha Gunasekara: contact [AT] achinthagunasekara [D0T] com
+Achintha Gunasekara: contact@ achinthagunasekara.com
 
 
 ## ⚖️ License
