@@ -47,6 +47,9 @@ public class Calculator {
             return num1 * num2;
         }
         if (mode.equals(BiOperatorModes.divide)) {
+            if (num2 == 0){
+                return NaN;
+            }
             return num1 / num2;
         }
         if (mode.equals(BiOperatorModes.xpowerofy)) {
@@ -92,6 +95,9 @@ public class Calculator {
             return Math.sqrt(num);
         }
         if (newMode.equals(MonoOperatorModes.oneDividedBy)) {
+            if(num == 0) {       
+                return NaN;         // This line of code handles division by zero to avoid infinity
+            }                         
             return 1 / num;
         }
         if (newMode.equals(MonoOperatorModes.cos)) {
