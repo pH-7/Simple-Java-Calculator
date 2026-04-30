@@ -299,8 +299,14 @@ public class UI implements ActionListener {
          if (source == butabs)
             writer(calc.calculateMono(Calculator.MonoOperatorModes.abs, reader()));
 
-         if (source == butEqual)
-            writer(calc.calculateEqual(reader()));
+         if (source == butEqual){
+            Double result = calc.calculateEqual(reader());
+            if (Double.isNaN(result)){                   // it checks for math errors (like dividing by 0) and if there is one, it returns
+                text.setText("Invalid Operation");       // "invalid operation". If not, it returns the result
+            } else {
+                writer(result);
+            }
+         }
 
          if (source == butCancel)
             writer(calc.reset());
